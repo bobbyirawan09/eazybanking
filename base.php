@@ -32,7 +32,7 @@ nav{
   <?php startblock('title') ?>
   <?php endblock() ?>
 	</title>
-	<link rel="icon" type="image/png" href="logo.png"> 	
+	<link rel="icon" type="image/png" href="assets/logo.png"> 	
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <?php startblock('head') ?>
   <?php endblock() ?>
@@ -42,7 +42,7 @@ nav{
 	<div class="container">
 		<div class="navbar-header">
 			<a class="pull-left" href="index.php"> 
-				<img src="logo.png" id="gambar"> 
+				<img src="assets/logo.png" id="gambar"> 
 			</a>
 			<a class="navbar-brand" href="index.php" id="nama">Eazy online</a>
 		</div>
