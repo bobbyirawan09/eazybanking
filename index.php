@@ -1,12 +1,12 @@
 <?php include 'base.php' ?>
 <?php startblock('title') ?>
-	| Eazy Banking
+	Eazy Banking
 <?php endblock() ?>
 
 <?php startblock('head') ?>
 	<link rel="stylesheet" href="bootstrap/css/carousel.css">
 	<script src="bootstrap/js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
 <?php endblock() ?>
 
 <?php startblock('body') ?>
@@ -58,4 +58,68 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<div class="container">
+  <div class="row featurette">
+    <div class="col-md-6" style="padding-top: 5%;">
+      <h2 class="section-heading"><strong>This is Eazy.<strong></h2>
+      <hr>
+      <p class="lead text-justify">It’s the whole idea of banking, remade with lovely design, equally lovely tools to help you save (right inside your account), and genuine human goodness.</p>
+    </div>
+    <div class="col-md-6">
+      <img class="img-rounded" style="width: 100%; height: 100%;" src="assets/ez-kit.png">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-6 col-md-push-6" style="padding-top: 5%;">
+      <h2 class="section-heading text-right"><strong>Set Goals to save automatically.</strong></h2>
+      <hr>
+      <p class="lead text-right">Heartening, easy wins. Ticking up every day in the background.</p>
+    </div>
+    <div class="col-md-6 col-md-pull-6">
+       <img class="img-rounded" style="width: 100%; height: 100%;" src="assets/goals-01.gif">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-6" style="padding-top: 5%;">
+      <h2 class="section-heading"><strong>Use Goals for anything.</strong></h2>
+      <hr>
+      <p class="lead">From huge dreams to helpful budgets.</p>
+    </div>
+    <div class="col-md-6">
+      <img class="img-rounded" style="width: 100%; height: 100%;" src="assets/illustration-home-goal.png">
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-offset-1">
+      <h1><strong>And all along the way :<br>
+      No Fees!</strong><br>
+      <small>We don't charge those. For anything.</small>
+      </h1>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    <div class="col-md-4 col-md-offset-1">
+      <img style="width: 100%; height: 100%;" src="assets/withyou.png">
+      <h4 style="text-align: center;"><strong>No branches means no errands.</strong><br><small>
+      Deposit checks and make transfers from your phone. It’s all kinds of convenient.</small></h4>
+    </div>
+    <div class="col-md-4 col-md-offset-2">
+      <img style="width: 100%; height: 100%;" src="assets/yourback.png">
+      <h4 style="text-align: center;"><strong>An account that's FDIC-insured.</strong><br><small>
+      Through our intrepid partner banks.* Plus support from friendly humans.</small></h4>
+    </div>
+  </div>
+</div>
+<br><br>
 <?php endblock() ?>
