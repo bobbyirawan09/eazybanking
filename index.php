@@ -7,6 +7,18 @@
 	<link rel="stylesheet" href="bootstrap/css/carousel.css">
 	<script src="bootstrap/js/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .caption {
+      position: absolute;
+      right: 15%;
+      top: 40%;
+      left: 15%;
+      z-index: 10;
+      color: #fff;
+      text-align: left;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    }
+  </style>
 <?php endblock() ?>
 
 <?php startblock('body') ?>
@@ -19,22 +31,21 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+      <img class="first-slide" src="assets/hero-cafe.jpg" alt="First slide">
       <div class="container">
-        <div class="carousel-caption">
-          <h1>Example headline.</h1>
-          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+        <div class="caption">
+          <h1><strong>Save Easily. Bank Beautifully.</strong><br>
+          <small style="color: white;">Open your Account in just a couple of minutes</small></h1><br>
+          <button class="btn btn-primary btn-lg">Get Eazy</button></p>
         </div>
       </div>
     </div>
     <div class="item">
-      <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+      <img class="second-slide" src="assets/home-sts.jpg" alt="Second slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+          <h1 style="color: black;"><strong>Always know what's Safe-to-Spend.</strong><br>
+          <small>Smart spending is just like saving.</small></h1><br>
         </div>
       </div>
     </div>
@@ -97,9 +108,9 @@
     </div>
   </div>
 
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
+<br>
+</div>
+  <div class="row featurette geteasy">
     <div class="col-md-offset-1">
       <h1><strong>And all along the way :<br>
       No Fees!</strong><br>
@@ -107,19 +118,19 @@
       </h1>
     </div>
   </div>
-  <hr class="featurette-divider">
+  <br>
   <div class="row featurette">
     <div class="col-md-4 col-md-offset-1">
-      <img style="width: 100%; height: 100%;" src="assets/withyou.png">
-      <h4 style="text-align: center;"><strong>No branches means no errands.</strong><br><small>
-      Deposit checks and make transfers from your phone. It’s all kinds of convenient.</small></h4>
+      <img style="width: 100%; height: 100%;" src="assets/withyou.png"><br>
+      <h3 style="text-align: center;"><strong>No branches means no errands.</strong><br><small>
+      Deposit checks and make transfers from your phone. It’s all kinds of convenient.</small></h3>
     </div>
     <div class="col-md-4 col-md-offset-2">
-      <img style="width: 100%; height: 100%;" src="assets/yourback.png">
-      <h4 style="text-align: center;"><strong>An account that's FDIC-insured.</strong><br><small>
-      Through our intrepid partner banks.* Plus support from friendly humans.</small></h4>
+      <img style="width: 100%; height: 100%;" src="assets/yourback.png"><br><br>
+      <h3 style="text-align: center;"><strong>An account that's FDIC-insured.</strong><br><small>
+      Through our intrepid partner banks.* Plus support from friendly humans.</small></h3>
     </div>
   </div>
-</div>
+
 <br><br>
 <?php endblock() ?>

@@ -41,7 +41,7 @@ nav{
   <?php startblock('title') ?>
   <?php endblock() ?>
 	</title>
-	<link rel="icon" type="image/png" href="assets/logo.png"> 	
+	<link rel="icon" type="image/png" href="assets/ez_logo.png"> 	
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <?php startblock('head') ?>
   <?php endblock() ?>
@@ -51,15 +51,15 @@ nav{
 		<div class="container">
 			<div class="navbar-header">
 				<a class="pull-left" href="index.php"> 
-					<img src="assets/logo.png" id="gambar"> 
+					<img src="assets/ez_logo.png" id="gambar"> 
 				</a>
 				<a class="navbar-brand" href="index.php" id="nama">Eazy Bank Online</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="index.php" id="home">Home</a></li>
-				<li><a href="#aboutus" id="features">Features</a></li>
-				<li><a href="#login" id="login">Log in</a></li>
-				<a href="#signup"><button class="btn btn-primary navbar-btn">Get Eazy!</button></a>
+				<li><a href="#features" id="features">Features</a></li>
+				<li><a href="signin.php" id="login">Log in</a></li>
+				<a href="signup.php"><button class="btn btn-primary navbar-btn">Get Eazy!</button></a>
 			</ul>
 		</div>	
 	</nav>
