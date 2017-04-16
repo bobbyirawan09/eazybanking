@@ -73,7 +73,7 @@
 <div class="container">
   <div class="row featurette">
     <div class="col-md-6" style="padding-top: 5%;">
-      <h2 class="section-heading"><strong>This is Eazy.<strong></h2>
+      <h2 class="section-heading"><strong>This is Eazy.</strong></h2>
       <hr>
       <p class="lead text-justify">It’s the whole idea of banking, remade with lovely design, equally lovely tools to help you save (right inside your account), and genuine human goodness.</p>
     </div>

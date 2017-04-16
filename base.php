@@ -77,17 +77,83 @@ nav{
 			<div class="row">
 				<div class="col-md-4">
 					About us
+					<hr>
 				</div>
 				<div class="col-md-4">
 					Find Us At
+					<hr>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/github-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/facebook-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/twitter-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/instagram-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-4">
 					Have any Question?
 					Contact us !
+					<hr>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/gmail-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/telegram-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/whatsapp-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/messenger-logo.png" style="width: 75%; height: 75%;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>QWERTY qwerty</label>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
   	</footer>
-  </div>
 </body>
 </html>

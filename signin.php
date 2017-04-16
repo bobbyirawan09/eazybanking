@@ -29,9 +29,12 @@
 </head>
 <body>
 	<form method="post" action="" class="centered">
-		<div class="row form-group">
-			<div class="col-md-12">
-				<a href="index.php"><img src="assets/ez_logo.png" style="width: 10%; height: 10%;"></a>&nbsp&nbsp<a href="index.php"><label style="font-size: 25px; color: black;">Eazy</label></a>
+		<div class="row">
+			<div class="col-md-2">
+				<a href="index.php"><img src="assets/ez_logo.png" style="width: 100%; height: 100%;"></a>
+			</div>
+			<div class="col-md-10">
+				<a href="index.php"><label style="font-size: 25px; padding: 15px 0; color: black;">Eazy</label></a>
 			</div>
 		</div>
 		<div class="row form-group">
@@ -56,7 +59,6 @@
 				<button type="submit" class="btn btn-primary btn-block btn-lg" name="signin">Sign In</button>
 			</div>
 		</div>
-		<div class="row">
 	</form>
 </body>
 </html>
