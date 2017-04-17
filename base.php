@@ -37,6 +37,27 @@ nav{
 	color: #333e48;
 	padding: 5%;
 }
+.sliding-middle-out {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+.sliding-middle-out:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+	width: 100%;
+	background: blue;
+}
+#nyala{
+	border-bottom: blue solid 1px;	
+}
 </style>
 	<title>
   <?php startblock('title') ?>
@@ -57,9 +78,9 @@ nav{
 				<a class="navbar-brand" href="index.php" id="nama">Eazy</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="index.php" id="home">Home</a></li>
-				<li><a href="#features" id="features">Features</a></li>
-				<li><a href="signin.php" id="login">Log in</a></li>
+				<li class="active"><a href="index.php" class="sliding-middle-out" id="home">Home</a></li>
+				<li><a href="#features" class="sliding-middle-out" id="features">Features</a></li>
+				<li><a href="signin.php" class="sliding-middle-out" id="login">Log in</a></li>
 				<a href="signup.php"><button class="btn btn-primary navbar-btn">Get Eazy!</button></a>
 			</ul>
 		</div>	
@@ -85,7 +106,7 @@ nav{
 					<hr>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/github-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/github-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -93,7 +114,7 @@ nav{
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/facebook-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/facebook-logo.png" style="width: 65px; height: 65px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -101,7 +122,7 @@ nav{
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/twitter-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/twitter-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -109,7 +130,7 @@ nav{
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/instagram-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/instagram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -122,7 +143,7 @@ nav{
 					<hr>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/gmail-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/gmail-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -130,7 +151,7 @@ nav{
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/telegram-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/telegram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -138,7 +159,7 @@ nav{
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/whatsapp-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/whatsapp-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>
@@ -146,7 +167,7 @@ nav{
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-							<img src="assets/messenger-logo.png" style="width: 75%; height: 75%;">
+							<img src="assets/messenger-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
 							<label>QWERTY qwerty</label>

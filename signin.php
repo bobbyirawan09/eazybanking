@@ -13,29 +13,29 @@
 			left: 50%;
 			transform: translate(-50%,-50%);
 		}
+		#lupa{
+			padding-top: -10px;
+		}
 	</style>
 	<script>
 		$(document).ready(function() {
 			$("#showpass").click(function() {
 				if($("#password").attr("type") == "text"){
 					$("#password").attr("type","password");
-					$("#iconpass").removeClass("glyphicon glyphicon-eye-close");
-					$("#iconpass").addClass("glyphicon glyphicon-eye-open");
 				}
 				else {
 					$("#password").attr("type","text");
-					$("#iconpass").removeClass("glyphicon glyphicon-eye-open");
-					$("#iconpass").addClass("glyphicon glyphicon-eye-close");
 				}
 			})
 		});
 	</script>
 </head>
 <body>
+<div class="container">
 	<form method="post" action="" class="centered">
 		<div class="row">
 			<div class="col-md-2">
-				<a href="index.php"><img src="assets/ez_logo.png" style="width: 100%; height: 100%;"></a>
+				<a href="index.php"><img src="assets/ez_logo.png" style="padding-bottom: 20px;width: 100%; height: 100%;"></a>
 			</div>
 			<div class="col-md-10">
 				<a href="index.php"><label style="font-size: 25px; padding: 15px 0; color: black;">Eazy</label></a>
@@ -53,7 +53,7 @@
 				<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password">
 				 <div class="input-group-btn">
 				    <button class="btn btn-default btn-lg" id="showpass" type="button">
-				        <i id="iconpass" class="glyphicon glyphicon-eye-open"></i>
+				        <i class="glyphicon glyphicon-eye-open"></i>
 				    </button>
 				 </div>
 			</div>
@@ -63,6 +63,17 @@
 				<button type="submit" class="btn btn-primary btn-block btn-lg" name="signin">Sign In</button>
 			</div>
 		</div>
+		<div class="row form-group">
+			<div class="col-md-12 input-group">
+				<h5>Not have eazy account yet? <a href="signup.php">Sign up</a></h5>
+			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col-md-12 input-group">
+				<a href="#" id="lupa">Forgot your password?</a>
+			</div>
+		</div>
 	</form>
+</div>
 </body>
 </html>
