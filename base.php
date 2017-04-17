@@ -54,7 +54,7 @@ nav{
 				<a class="pull-left" href="index.php"> 
 					<img src="assets/ez_logo.png" id="gambar"> 
 				</a>
-				<a class="navbar-brand" href="index.php" id="nama">Eazy Bank Online</a>
+				<a class="navbar-brand" href="index.php" id="nama">Eazy</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="index.php" id="home">Home</a></li>

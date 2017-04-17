@@ -48,7 +48,7 @@ nav{
 				<a class="pull-left" href="index.php"> 
 					<img src="assets/ez_logo.png" id="gambar"> 
 				</a>
-				<a class="navbar-brand" href="index.php" id="nama">Eazy Bank Online</a>
+				<a class="navbar-brand" href="index.php" id="nama">Eazy</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="index.php" id="activity">Activity</a></li>
@@ -61,7 +61,7 @@ nav{
                             <a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-envelope"></i> Inbox</a>
+                            <a href="#"><i class="glyphicon glyphicon-credit-card"></i> Card</a>
                         </li>
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
@@ -75,8 +75,10 @@ nav{
 			</ul>
 		</div>	
 	</nav>
+
 <?php startblock('body') ?>
 <?php endblock() ?>
+
 	<footer class="foot">
 		<div class="container">
 			<div class="row">
