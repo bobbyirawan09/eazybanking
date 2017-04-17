@@ -19,9 +19,13 @@
 			$("#showpass").click(function() {
 				if($("#password").attr("type") == "text"){
 					$("#password").attr("type","password");
+					$("#iconpass").removeClass("glyphicon glyphicon-eye-close");
+					$("#iconpass").addClass("glyphicon glyphicon-eye-open");
 				}
 				else {
 					$("#password").attr("type","text");
+					$("#iconpass").removeClass("glyphicon glyphicon-eye-open");
+					$("#iconpass").addClass("glyphicon glyphicon-eye-close");
 				}
 			})
 		});
@@ -49,7 +53,7 @@
 				<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password">
 				 <div class="input-group-btn">
 				    <button class="btn btn-default btn-lg" id="showpass" type="button">
-				        <i class="glyphicon glyphicon-eye-open"></i>
+				        <i id="iconpass" class="glyphicon glyphicon-eye-open"></i>
 				    </button>
 				 </div>
 			</div>

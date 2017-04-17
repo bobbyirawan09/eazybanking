@@ -43,9 +43,9 @@
     <div class="item">
       <img class="second-slide" src="assets/home-sts.jpg" alt="Second slide">
       <div class="container">
-        <div class="carousel-caption">
-          <h1 style="color: black;"><strong>Always know what's Safe-to-Spend.</strong><br>
-          <small>Smart spending is just like saving.</small></h1><br>
+        <div class="caption" style="top: 70%; left: 2%;">
+          <h1><strong>Always know what's Safe-to-Spend.</strong><br>
+          <small style="color: white;">Smart spending is just like saving.</small></h1><br>
         </div>
       </div>
     </div>

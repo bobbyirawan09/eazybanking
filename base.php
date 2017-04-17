@@ -33,7 +33,8 @@ nav{
 	padding: 5%;
 }
 .foot {
-	background-color: #cce6ff;
+	background-color: #e7f5fe;
+	color: #333e48;
 	padding: 5%;
 }
 </style>
