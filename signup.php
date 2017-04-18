@@ -272,9 +272,8 @@
 						<div class="tab-content">
 							<div class="tab-pane active" role="tabpanel" id="step1">
 								<form method="post" action="" class="centered">
-									<hr>
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
+										<div class="col-md-6 col-md-offset-3">
 											<div class="form-group">
 												<input type="text" name="Username" class="form-control">
 												<div class="form-control-placeholder">
@@ -284,7 +283,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
+										<div class="col-md-6 col-md-offset-3">
 											<div class="form-group">
 												<input type="email" name="Email" class="form-control">
 												<div class="form-control-placeholder">
@@ -294,7 +293,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
+										<div class="col-md-6 col-md-offset-3" >
 											<div class="form-group">
 												<input type="email" name="Email" class="form-control">
 												<div class="form-control-placeholder">
@@ -307,7 +306,7 @@
 										</button>
 									</div>
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
+										<div class="col-md-6 col-md-offset-3">
 											<div class="form-group">
 												<input type="email" name="Email" class="form-control">
 												<div class="form-control-placeholder">
@@ -326,7 +325,7 @@
 							</div>
 							<div class="tab-pane" role="tabpanel" id="step2">
 								<div class="row">
-									<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
+									<div class="col-md-6 col-md-offset-3" >
 										<div class="form-group">
 											<input type="text" name="Username" class="form-control">
 											<div class="form-control-placeholder">
@@ -336,8 +335,8 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
-										<div cla ss="form-group">
+									<div class="col-md-6 col-md-offset-3">
+										<div class="form-group">
 											<input type="text" name="Username" class="form-control">
 											<div class="form-control-placeholder">
 												Alamat
@@ -346,7 +345,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px;">
+									<div class="col-md-6 col-md-offset-3">
 										<div class="form-group">
 											<input type="text" name="Username" class="form-control">
 											<div class="form-control-placeholder">
@@ -361,7 +360,7 @@
 								</ul>
 							</div>
 							<div class="tab-pane" role="tabpanel" id="step3">
-								<div class="row" style="padding-bottom: 30px;">
+								<div class="row">
 									<div class="col-md-6 col-md-offset-1">
 										<h3><strong>Masukkan nomor handphone anda</strong></h3>
 										<p>Ketika anda menginputkan nomor handphone anda yang benar dan sesuai ketentuan, kami akan mengirimkan kode verifikasi</p>
@@ -371,7 +370,7 @@
 									</div>
 								</div>
 								<div class="row " style="padding-top: 30px;">
-									<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; padding-bottom: 30px; margin-top: -200px;">
+									<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; margin-top: -200px;">
 										<div class="form-group">
 											<input type="text" name="Username" class="form-control">
 											<div class="form-control-placeholder">
@@ -381,7 +380,7 @@
 									</div>
 								</div>
 								<div class="row " style="padding-top: 80px;">
-									<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; padding-bottom: 30px; margin-top: -200px;">
+									<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; margin-top: -200px;">
 										<div class="form-group">
 											<input type="text" name="Username" class="form-control">
 											<div class="form-control-placeholder">
@@ -391,7 +390,7 @@
 									</div>
 								</div>
 								<div class="row " style="padding-top: 80px;">
-									<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; padding-bottom: 30px; margin-top: -200px;">
+									<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; margin-top: -200px;">
 										<div class="form-group">
 											<input type="text" name="Username" class="form-control">
 											<div class="form-control-placeholder">
@@ -400,7 +399,7 @@
 										</div>
 									</div>
 								</div>
-								<ul class="list-inline pull-right">
+								<ul class="list-inline pull-right" style="margin-top:-100px;">
 									<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
 									<li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
 								</ul>

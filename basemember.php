@@ -130,12 +130,12 @@ function closeNav() {
 </div>
 <div id="main">
 <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span></a>
-      <a class="pull-left" href="activity.php"> 
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#"><span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span></a>
+	  <a class="pull-left" href="activity.php"> 
 		<img src="assets/ez_logo.png" style="width: 110px; height: 50px;" id="gambar"></a>
-    </div>
+	</div>
+    <div class="container">
     <ul class="nav navbar-nav navbar-right">
 		<li class="active"><a href="#" onclick="openNav()" data-toggle="collapse" data-target="#demo" class="sliding-middle-out" id="home">
 		<i class="glyphicon glyphicon-user"></i> Dummy </a></li>
