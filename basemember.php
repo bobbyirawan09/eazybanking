@@ -88,7 +88,7 @@ function closeNav() {
   <?php startblock('title') ?>
   <?php endblock() ?>
 	</title>
-	<link rel="icon" type="image/png" href="assets/ez_logo.png"> 	
+	<link rel="icon" type="image/png" href="assets/ez.png"> 	
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 	<script src="bootstrap/js/jquery.min.js"></script>
  	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -100,7 +100,7 @@ function closeNav() {
 
 <div id="mySidenav" class="sidenav text-center">
   <a href="javascript:void(0)" class="closebtn text-left" onclick="closeNav()">&times;</a>
-	  <img src="assets/ez_logo.png" class="img-circle" padding width="100px" height="100px">
+	  <img src="assets/ez_logo.png" padding width="200px" height="90px">
 	  <div class="row collapse navbar-collapse navbar-ex1-collapse">
 	  	<ul>
 	  		<li href="#" class="text-left">
@@ -122,7 +122,7 @@ function closeNav() {
 	  		<ul id="demo" class="collapse" style="float: left;">
 	  			<li><a href="#"><i class="glyphicon glyphicon-user"></i>&nbspProfile</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-wrench"></i>&nbspAccount</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-off"></i>&nbspLog Out</a></li>
+                <li><a href="index.php"><i class="glyphicon glyphicon-off"></i>&nbspLog Out</a></li>
             </ul>
 	  		</li>
 	  	</ul>
@@ -130,12 +130,16 @@ function closeNav() {
 </div>
 <div id="main">
 <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span></a>
       <a class="pull-left" href="index.php"> 
-		<img src="assets/ez_logo.png" style="width: 50px; height: 50px;" id="gambar"></a>
+		<img src="assets/ez_logo.png" style="width: 110px; height: 50px;" id="gambar"></a>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+		<li class="active"><a href="#" onclick="openNav()" data-toggle="collapse" data-target="#demo" class="sliding-middle-out" id="home">
+		<i class="glyphicon glyphicon-user"></i> Dummy </a></li>
+	</ul>
   </div>
 </nav>
 <?php startblock('body') ?>

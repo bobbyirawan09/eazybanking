@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Sign In | Eazy</title>
-	<link rel="icon" type="image/png" href="assets/ez_logo.png"> 	
+	<link rel="icon" type="image/png" href="assets/ez.png"> 	
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 	<script src="bootstrap/js/jquery.min.js"></script>
  	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -32,13 +32,10 @@
 </head>
 <body>
 <div class="container">
-	<form method="post" action="" class="centered">
+	<form method="post" action="activity.php" class="centered">
 		<div class="row">
-			<div class="col-md-2">
-				<a href="index.php"><img src="assets/ez_logo.png" style="padding-bottom: 20px;width: 100%; height: 100%;"></a>
-			</div>
-			<div class="col-md-10">
-				<a href="index.php"><label style="font-size: 25px; padding: 15px 0; color: black;">Eazy</label></a>
+			<div class="col-md-12">
+				<a href="index.php"><img src="assets/ez_logo.png" style="padding-bottom: 20px; width: 200px; height: 110px;"></a>
 			</div>
 		</div>
 		<div class="row form-group">

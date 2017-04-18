@@ -43,7 +43,7 @@
                                 <button type="submit" class="btn btn-info btn-block">Transfer</button>
                             </div>
                             <div class="col-sm-6">
-                                <a href="activity.php"><button type="submit" class="btn btn-primary btn-block">Cancel</button></a>
+                                <a href="activity.php"><button type="button" class="btn btn-primary btn-block">Cancel</button></a>
                             </div> 
                         </div>
                     </div>

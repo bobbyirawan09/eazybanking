@@ -63,7 +63,7 @@ nav{
   <?php startblock('title') ?>
   <?php endblock() ?>
 	</title>
-	<link rel="icon" type="image/png" href="assets/ez_logo.png"> 	
+	<link rel="icon" type="image/png" href="assets/ez.png"> 	
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <?php startblock('head') ?>
   <?php endblock() ?>
@@ -73,9 +73,8 @@ nav{
 		<div class="container">
 			<div class="navbar-header">
 				<a class="pull-left" href="index.php"> 
-					<img src="assets/ez_logo.png" id="gambar"> 
+					<img src="assets/ez_logo.png" style="width: 110px; height: 50px;" id="gambar"> 
 				</a>
-				<a class="navbar-brand" href="index.php" id="nama">Eazy</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="index.php" class="sliding-middle-out" id="home">Home</a></li>
@@ -91,7 +90,7 @@ nav{
 		<div class="container">
 			<h1><strong>Save Easily. Bank Beautifully.</strong><br>
 			<small>Open your Account in just a couple of minutes</small></h1><br>
-			<button class="btn btn-primary btn-lg">Get Eazy</button>
+			<a href="signup.php"><button class="btn btn-primary btn-lg">Get Eazy</button></a>
 		</div>
 	</div>
 	<footer class="foot">
