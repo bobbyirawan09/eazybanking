@@ -366,8 +366,8 @@
 										<h3><strong>Masukkan nomor handphone anda</strong></h3>
 										<p>Ketika anda menginputkan nomor handphone anda yang benar dan sesuai ketentuan, kami akan mengirimkan kode verifikasi</p>
 									</div>
-									<div class="col-md-5">
-										<img src="hp.png">
+									<div class="col-md-5" style="text-align: center;">
+										<img src="assets/hp.png">
 									</div>
 								</div>
 								<div class="row " style="padding-top: 30px;">
@@ -412,7 +412,7 @@
 										<p>You have successfully completed all steps.</p>
 									</div>
 									<div class="col-md-12" style="text-align: center">
-										<img src="centang.jpg">
+										<img src="assets/icon.png" style="width: 200px; height: 200px;">
 									</div>
 									<div class="col-md-12" style="text-align: center; padding-top:20px;">
 										<a href="signin.php"><button type="button" class="btn btn-primary">

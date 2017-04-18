@@ -120,8 +120,8 @@ function closeNav() {
 	  		<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 	  		Account settings</a>
 	  		<ul id="demo" class="collapse" style="float: left;">
-	  			<li><a href="#"><i class="glyphicon glyphicon-user"></i>&nbspProfile</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i>&nbspAccount</a></li>
+	  			<li><a href="ubahpp.php"><i class="glyphicon glyphicon-user"></i>&nbspProfile</a></li>
+                <li><a href="settingakun.php"><i class="glyphicon glyphicon-wrench"></i>&nbspAccount</a></li>
                 <li><a href="index.php"><i class="glyphicon glyphicon-off"></i>&nbspLog Out</a></li>
             </ul>
 	  		</li>
@@ -133,7 +133,7 @@ function closeNav() {
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span></a>
-      <a class="pull-left" href="index.php"> 
+      <a class="pull-left" href="activity.php"> 
 		<img src="assets/ez_logo.png" style="width: 110px; height: 50px;" id="gambar"></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
