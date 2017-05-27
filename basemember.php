@@ -1,4 +1,9 @@
-<?php require_once 'ti.php' ?>
+<?php require_once 'ti.php'; 
+	session_start();
+	if(!isset($_SESSION['loggedin'])){
+		header("location: signin.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,6 +71,7 @@ body {
 	padding: 5%;
 }
 </style>
+<script src="bootstrap/js/jquery.js"></script>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "315px";
@@ -122,7 +128,7 @@ function closeNav() {
 	  		<ul id="demo" class="collapse" style="float: left;">
 	  			<li><a href="ubahpp.php"><i class="glyphicon glyphicon-user"></i>&nbspProfile</a></li>
                 <li><a href="settingakun.php"><i class="glyphicon glyphicon-wrench"></i>&nbspAccount</a></li>
-                <li><a href="index.php"><i class="glyphicon glyphicon-off"></i>&nbspLog Out</a></li>
+                <li><a href="index.php?logout"><i class="glyphicon glyphicon-off"></i>&nbspLog Out</a></li>
             </ul>
 	  		</li>
 	  	</ul>

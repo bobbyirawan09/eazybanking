@@ -1,10 +1,16 @@
+<?php
+	session_start();
+	if(isset($_SESSION['loggedin'])) {
+		header("location: activity.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Eazy	</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="icon" type="image/png" href="assets/ez_logo.png">
+	<link rel="icon" type="image/png" href="assets/ez.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -267,7 +273,7 @@
 	<body>
 		<div class="row" style="margin-top:0px;">
 			<div class="col-md-2 col-md-offset-3" id="logo">
-				<a href="index.php"><img src="assets/logobaru.png" style="margin-top: -50px;margin-left: 200px; width: 300px; height: 270px;"></a>
+				<a href="index.php"><img src="assets/ez_logo.png" style="margin-top: -25px;margin-left: 150px; width: 400px; height: 200px;"></a>
 			</div>
 		</div>
 		<div class="container" style="padding-top: 130px;">
@@ -409,7 +415,7 @@
 											<p>Ketika anda menginputkan nomor handphone anda yang benar dan sesuai ketentuan, kami akan mengirimkan kode verifikasi</p>
 										</div>
 										<div class="col-md-5">
-											<img src="hp.png">
+											<img src="assets/hp.png">
 										</div>
 									</div>
 									<div class="row " style="padding-top: 30px;">
@@ -454,10 +460,10 @@
 											<p>You have successfully completed all steps.</p>
 										</div>
 										<div class="col-md-12" style="text-align: center">
-											<img src="centang.jpg">
+											<img src="assets/centang.png" style="width: 200px; height: 200px;">
 										</div>
 										<div class="col-md-12" style="text-align: center; padding-top:20px;">
-											<a href="index.php"><button type="button" class="btn btn-primary">
+											<a href="signin.php"><button type="button" class="btn btn-primary">
 												Back <i class="glyphicon glyphicon-arrow-left"></i>
 											</button></a>
 										</div>

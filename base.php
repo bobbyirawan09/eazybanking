@@ -1,4 +1,6 @@
-<?php require_once 'ti.php' ?>
+<?php require_once 'ti.php'; 
+	session_start();	
+?>
 <!DOCTYPE html>
 <html>
 <head>

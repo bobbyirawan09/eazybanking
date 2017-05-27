@@ -22,6 +22,12 @@
 <?php endblock() ?>
 
 <?php startblock('body') ?>
+<?php
+  if(isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+  }
+?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -36,7 +42,7 @@
         <div class="caption">
           <h1><strong>Save Easily. Bank Beautifully.</strong><br>
           <small style="color: white;">Open your Account in just a couple of minutes</small></h1><br>
-          <button class="btn btn-primary btn-lg">Get Eazy</button></p>
+          <a href="signup.php"><button class="btn btn-primary btn-lg">Get Eazy</button></a></p>
         </div>
       </div>
     </div>
@@ -50,12 +56,11 @@
       </div>
     </div>
     <div class="item">
-      <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+      <img class="third-slide" src="assets/activity.jpg" alt="Third slide">
       <div class="container">
-        <div class="carousel-caption">
-          <h1>One more for good measure.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+        <div class="caption" style="top: 70%; left: 5%;">
+          <h1><strong>See all your daily ebbs and flows.</strong><br>
+          <small style="color: white;">A friendly notification will let you know every time one of you spends from your account, keeping you well-acquainted with your finances.</small></h1><br>
         </div>
       </div>
     </div>

@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if(isset($_SESSION['loggedin'])) {
+		header("location: activity.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,8 +41,27 @@
 	</script>
 </head>
 <body>
+<?php
+	if(isset($_POST['signin'])) {
+		$user = $_POST['username'];
+		$pass = $_POST['password'];
+		$con = mysqli_connect("localhost","root","","eazybanking");
+		$query = "SELECT account FROM user WHERE username='$user' AND password='$pass'";
+		$res = mysqli_query($con,$query);
+		$log = mysqli_fetch_assoc($res);
+		echo $log['account'];
+		if($log) {
+			$_SESSION['loggedin'] = 1;
+			$_SESSION['account'] = $log['account'];
+			header("location: activity.php");
+		}
+		else {
+			echo "log in failed";
+		}
+	}
+?>
 <div class="container">
-	<form method="post" action="activity.php" class="centered">
+	<form method="post" action="signin.php" class="centered">
 		<div class="row">
 			<div class="col-md-12">
 				<a href="index.php"><img src="assets/ez_logo.png" style="padding-bottom: 20px; width: 200px; height: 110px;"></a>
