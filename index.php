@@ -22,12 +22,6 @@
 <?php endblock() ?>
 
 <?php startblock('body') ?>
-<?php
-  if(isset($_GET['logout'])) {
-    session_unset();
-    session_destroy();
-  }
-?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -117,9 +111,9 @@
 </div>
   <div class="row featurette geteasy">
     <div class="col-md-offset-1">
-      <h1 style="color: #0077ff;"><strong>And all along the way :<br>
+      <h1 style="color: #0088ff;"><strong>And all along the way :<br>
       No Fees!</strong><br>
-      <small style="color: #0077ff;">We don't charge those. For anything.</small>
+      <small style="color: #0088ff;">We don't charge those. For anything.</small>
       </h1>
     </div>
   </div>

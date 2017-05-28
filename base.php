@@ -1,5 +1,12 @@
 <?php require_once 'ti.php'; 
-	session_start();	
+	session_start();
+	if(isset($_GET['logout'])) {
+	    session_unset();
+	    session_destroy();
+	}
+	if(isset($_SESSION['loggedin'])) {
+		header("location: activity.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,8 +97,8 @@ nav{
 <?php endblock() ?>
 	<div class="container-fluid geteasy">
 		<div class="container">
-			<h1 style="color: #0077ff;"><strong>Save Easily. Bank Beautifully.</strong><br>
-			<small style="color: #0077ff;">Open your Account in just a couple of minutes</small></h1><br>
+			<h1 style="color: #0088ff;"><strong>Save Easily. Bank Beautifully.</strong><br>
+			<small style="color: #0088ff;">Open your Account in just a couple of minutes</small></h1><br>
 			<a href="signup.php"><button class="btn btn-primary btn-lg">Get Eazy</button></a>
 		</div>
 	</div>
