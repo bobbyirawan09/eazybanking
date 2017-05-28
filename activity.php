@@ -21,13 +21,26 @@
     });
     function showActivity() {
       $.ajax({
-        url: "activity.json",
+        url: "activityData.php",
         type: "POST",
         dataType: "JSON",
         success: function(result){
+          var debit = 0;
+          var credit = 0;
           for (i in result) {
-            $("#activity").append('<div class="row well"><div class="col-md-7"><h2>'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h2></div><div class="col-md-3"><h3 style="padding-top: 15px;"><span class="label label-default">'+result[i].type+'</span></h3></div><div class="col-md-2"><h2 style="color: red; padding-top: 15px; text-align: center;">'+result[i].amount+'</h2></div></div>');
+            if(result[i].type == 1) {
+              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1><span class="glyphicon glyphicon-calendar"></span></h1></div><h3><span class="label label-info">'+result[i].tgl+'</span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-danger">-Rp '+result[i].amount+'</span></h2></div></div>');
+              credit += parseInt(result[i].amount);
+            }
+            else if(result[i].type == 0){
+              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1><span class="glyphicon glyphicon-calendar"></span></h1></div><h3><span class="label label-info">'+result[i].tgl+'</span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-success">+Rp '+result[i].amount+'</span></h2></div></div>');
+              debit += parseInt(result[i].amount);
+            }
           }
+          var total = debit - credit;
+          $("#debit").html("Rp "+debit);
+          $("#credit").html("Rp "+credit);
+          $("#total").html("Rp "+total);
         }
       });
     }
@@ -47,30 +60,30 @@
     <hr>
 
     <div class="row">
-      <div class="col-md-6 col-md-offset-2">
-        <h3 style="color: green;">Debit</h3>
+      <div class="col-md-4 col-md-offset-1">
+        <h3 style="color: green; text-align: right;">Debit</h3>
       </div>
-      <div class="col-md-4">
-        <h3 style="color: green;">5000</h3>
+      <div class="col-md-7">
+        <h3 style="color: green;" id="debit"></h3>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-6 col-md-offset-2">
-        <h3 style="color: red;">Credit</h3>
+      <div class="col-md-4 col-md-offset-1">
+        <h3 style="color: red; text-align: right;">Credit</h3>
       </div>
-      <div class="col-md-4">
-        <h3 style="color: red;">700</h3>
+      <div class="col-md-7">
+        <h3 style="color: red;" id="credit"></h3>
       </div>
     </div>
     <hr>
 
     <div class="row">
-      <div class="col-md-6 col-md-offset-2">
-        <h3 style="color: blue;">Total</h3>
+      <div class="col-md-4 col-md-offset-1">
+        <h3 style="color: blue; text-align: right;">Available</h3>
       </div>
-      <div class="col-md-4">
-        <h3 style="color: blue;">4300</h3>
+      <div class="col-md-7">
+        <h3 style="color: blue;" id="total"></h3>
       </div>
     </div>
 

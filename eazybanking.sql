@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 28, 2017 at 09:03 AM
+-- Generation Time: May 28, 2017 at 05:51 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -28,12 +28,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activity` (
   `idactivity` int(11) NOT NULL,
+  `tgl` date NOT NULL,
   `otheruser` varchar(30) NOT NULL,
   `info` varchar(100) NOT NULL,
   `amount` int(11) NOT NULL,
   `type` int(1) NOT NULL,
   `user` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `activity`
+--
+
+INSERT INTO `activity` (`idactivity`, `tgl`, `otheruser`, `info`, `amount`, `type`, `user`) VALUES
+(1, '2017-05-16', 'DUMMY NAME 2', 'Beli makanan', 500000, 1, '0000000001'),
+(2, '2017-05-31', 'DUMMY NAME 1', 'Bayar Baju', 1500000, 0, '0000000001');
 
 -- --------------------------------------------------------
 
@@ -105,18 +114,20 @@ CREATE TABLE `user` (
   `phone` varchar(15) NOT NULL,
   `username` varchar(16) NOT NULL,
   `password` varchar(16) NOT NULL,
+  `pin` varchar(8) NOT NULL,
   `privilege` int(1) NOT NULL,
   `bankcode` varchar(4) NOT NULL,
-  `balance` int(11) NOT NULL
+  `balance` int(11) NOT NULL,
+  `card` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `username`, `password`, `privilege`, `bankcode`, `balance`) VALUES
-('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dummy', 'dummy', 0, '0001', 0),
-('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2', 'dummy2', 0, '0001', 0);
+INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `username`, `password`, `pin`, `privilege`, `bankcode`, `balance`, `card`) VALUES
+('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dummy', 'dummy', 'dummy', 0, '0001', 0, 1),
+('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -165,7 +176,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `idactivity` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idactivity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `transfer`
 --

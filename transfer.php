@@ -68,13 +68,13 @@
             alert("Uang tidak mencukupi");
         }
         else if(cek == 1 && uang == 1) {
-
             confirmation(tujuan,amount);
         }
     };
     function confirmation(tujuan,amount) {
         var bank = $("#bank option:selected").text();
-        $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount);
+        var text = $("#info").val();
+        $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount+"<br>Notes : "+text);
         $("#confirm").modal('show');
     };
     function transfer() {
@@ -139,9 +139,13 @@
   								<input type="text" id="amount" class="form-control" placeholder="Total uang" aria-describedby="sizing-addon3">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="jumlah">Notes :</label>
+                            <textarea class="form-control" rows="5" id="info"></textarea>
+                        </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <button type="button" data-toggle="modal" class="btn btn-info btn-block" id="transfer">Transfer</button>
+                                <button type="button" data-toggle="modal" class="btn btn-primary btn-block" id="transfer">Transfer</button>
                             </div>
                             <div class="col-sm-6">
                                 <a href="activity.php"><button type="button" class="btn btn-danger btn-block">Cancel</button></a>
@@ -165,7 +169,7 @@
               <!-- isi confirm transfer -->
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" id="conftranf">Confirm Transfer</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" id="conftranf">Confirm Transfer</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
           </div>
