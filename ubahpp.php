@@ -64,14 +64,14 @@ $('#gambarpp').on('change', function(){
 		<center>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="padding-bottom: 20px;">
-				<button class="btn btn-success" style="background-color: #0000ff;">
+				<button class="btn btn-primary">
 					Coba pasang
 				</button>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3" style="padding-bottom: 20px;">
-				<button class="btn btn-success" style="background-color: #0000ff;">
+				<button class="btn btn-success">
 					Simpan
 				</button>
 			</div>

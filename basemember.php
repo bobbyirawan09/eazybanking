@@ -152,87 +152,65 @@ function closeNav() {
 <?php endblock() ?>
 </div>
 <footer class="foot">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				About us
-				<hr>
-			</div>
-			<div class="col-md-4">
-				Find Us At
-				<hr>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/github-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					About us
+					<hr>
+				</div>
+				<div class="col-md-4">
+					Find Us At
+					<hr>
+					<div class="row">
+					<a href="https://github.com/taezatria/eazybanking">
+						<div class="col-md-3">
+							<img src="assets/github-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>GitHub EazyBanking</label>
+						</div>
+					</a>
 					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/twitter-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>Twitter @EazyBanking</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/instagram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>Instagram eazybanking99</label>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/facebook-logo.png" style="width: 65px; height: 65px; margin-left: -8px;">
+				<div class="col-md-4">
+					Have any Question?
+					Contact us !
+					<hr>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/gmail-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>cssupport@eazy.bank</label>
+						</div>
 					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/twitter-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/instagram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				Have any Question?
-				Contact us !
-				<hr>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/gmail-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/telegram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/whatsapp-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<img src="assets/messenger-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-					</div>
-					<div class="col-md-9" style="padding: 15px 0;">
-						<label>QWERTY qwerty</label>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/whatsapp-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>+1 3457 8414</label>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</footer>
+  	</footer>
 </body>
 </html>

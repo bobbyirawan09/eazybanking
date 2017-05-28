@@ -117,9 +117,9 @@
 </div>
   <div class="row featurette geteasy">
     <div class="col-md-offset-1">
-      <h1><strong>And all along the way :<br>
+      <h1 style="color: #0077ff;"><strong>And all along the way :<br>
       No Fees!</strong><br>
-      <small>We don't charge those. For anything.</small>
+      <small style="color: #0077ff;">We don't charge those. For anything.</small>
       </h1>
     </div>
   </div>

@@ -77,6 +77,21 @@
         $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount);
         $("#confirm").modal('show');
     };
+    function transfer() {
+        $.ajax({
+            url: "",
+            type: "POST",
+            async: "false",
+            data: {
+                acc: "",
+                acc2: "",
+                amount: ""
+            },
+            success: function(res){
+                
+            }
+        });
+    };
     $(document).ready(function(){
         $("#acc").keyup(function(){
             checkNum(this);
@@ -86,6 +101,8 @@
         });
         $("#transfer").click(function(){
             check();
+        });
+        $("#conftranf").click(function(){
             
         });
     });
@@ -138,24 +155,23 @@
 
     <div class="modal fade" id="confirm" role="dialog">
         <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Transfer Confirmation</h4>
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Transfer Confirmation</h4>
+            </div>
+            <div class="modal-body" id="isimodal">
+              <!-- isi confirm transfer -->
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="conftranf">Confirm Transfer</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+          
         </div>
-        <div class="modal-body" id="isimodal">
-          <!-- isi confirm transfer -->
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="conftranf">Confirm Transfer</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        </div>
-      </div>
-      
     </div>
-  </div>
 
 </div>
 <?php endblock() ?>

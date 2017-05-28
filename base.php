@@ -90,8 +90,8 @@ nav{
 <?php endblock() ?>
 	<div class="container-fluid geteasy">
 		<div class="container">
-			<h1><strong>Save Easily. Bank Beautifully.</strong><br>
-			<small>Open your Account in just a couple of minutes</small></h1><br>
+			<h1 style="color: #0077ff;"><strong>Save Easily. Bank Beautifully.</strong><br>
+			<small style="color: #0077ff;">Open your Account in just a couple of minutes</small></h1><br>
 			<a href="signup.php"><button class="btn btn-primary btn-lg">Get Eazy</button></a>
 		</div>
 	</div>
@@ -106,27 +106,21 @@ nav{
 					Find Us At
 					<hr>
 					<div class="row">
+					<a href="https://github.com/taezatria/eazybanking">
 						<div class="col-md-3">
 							<img src="assets/github-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
+							<label>GitHub EazyBanking</label>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<img src="assets/facebook-logo.png" style="width: 65px; height: 65px; margin: 0 auto;">
-						</div>
-						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
-						</div>
+					</a>
 					</div>
 					<div class="row">
 						<div class="col-md-3">
 							<img src="assets/twitter-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
+							<label>Twitter @EazyBanking</label>
 						</div>
 					</div>
 					<div class="row">
@@ -134,7 +128,7 @@ nav{
 							<img src="assets/instagram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
+							<label>Instagram eazybanking99</label>
 						</div>
 					</div>
 				</div>
@@ -147,15 +141,7 @@ nav{
 							<img src="assets/gmail-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<img src="assets/telegram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-						</div>
-						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
+							<label>cssupport@eazy.bank</label>
 						</div>
 					</div>
 					<div class="row">
@@ -163,15 +149,7 @@ nav{
 							<img src="assets/whatsapp-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
 						</div>
 						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-							<img src="assets/messenger-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
-						</div>
-						<div class="col-md-9" style="padding: 15px 0;">
-							<label>QWERTY qwerty</label>
+							<label>+1 3457 8414</label>
 						</div>
 					</div>
 				</div>
