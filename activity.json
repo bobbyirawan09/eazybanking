@@ -1,25 +1,25 @@
 [
 	{
-		"otheruser" : "Coba",
-		"info" : "hahaha",
+		"otheruser" : "Makan",
+		"info" : "Makan makanan",
 		"type" : "Transferred",
 		"amount" : "1200"
 	},
 	{
-		"otheruser" : "Coba",
-		"info" : "hahaha",
+		"otheruser" : "Mandi",
+		"info" : "mandi pake air",
 		"type" : "Transferred",
 		"amount" : "1200"
 	},
 	{
-		"otheruser" : "Coba",
-		"info" : "hahaha",
+		"otheruser" : "Tidur",
+		"info" : "mata tertutup",
 		"type" : "Transferred",
 		"amount" : "1200"
 	},
 	{
-		"otheruser" : "Coba",
-		"info" : "hahaha",
+		"otheruser" : "KAPANNN",
+		"info" : "liburan :(",
 		"type" : "Transferred",
 		"amount" : "1200"
 	}

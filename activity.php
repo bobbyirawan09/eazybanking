@@ -21,7 +21,7 @@
     });
     function showActivity() {
       $.ajax({
-        url: "dummy.json",
+        url: "activity.json",
         type: "POST",
         dataType: "JSON",
         success: function(result){

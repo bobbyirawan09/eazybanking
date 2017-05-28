@@ -1,0 +1,20 @@
+[
+	{
+		"account" : "1234567890",
+		"name" : "DUMMY NAME",
+		"bankcode" : "0001",
+		"amount" : "1000000"
+	},
+	{
+		"account" : "000000001",
+		"name" : "DUMMY",
+		"bankcode" : "0001",
+		"amount" : "1000000"
+	},
+	{
+		"account" : "1234567891",
+		"name" : "DUMMY NAME 2",
+		"bankcode" : "0001",
+		"amount" : "1000000"
+	}
+]
