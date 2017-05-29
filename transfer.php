@@ -28,9 +28,12 @@
     };
     function getData() {
         $.ajax({
-            url: "datatransfer.json",
+            url: "transferdata.php",
             type: "POST",
             dataType: "JSON",
+            data: {
+                check: 1
+            },
             success: function(res){
                 checkData(res);
             }
@@ -78,17 +81,24 @@
         $("#confirm").modal('show');
     };
     function transfer() {
+        var bank = $("#bank").val();
+        var len = bank.length;
+        for(i=len ; i < 4 ; i++){
+            bank = "0"+bank;
+        }
         $.ajax({
-            url: "",
+            url: "transferdata.php",
             type: "POST",
             async: "false",
             data: {
-                acc: "",
-                acc2: "",
-                amount: ""
+                transfer: 1,
+                bankcode: bank,
+                other: $("#acc").val(),
+                amount: $("#amount").val(),
+                info: $("#info").val()
             },
             success: function(res){
-                
+                alert("Transfer OK");
             }
         });
     };
@@ -103,7 +113,7 @@
             check();
         });
         $("#conftranf").click(function(){
-            
+            transfer();
         });
     });
 </script>
