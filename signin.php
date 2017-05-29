@@ -56,7 +56,7 @@
 			header("location: activity.php");
 		}
 		else {
-			echo "log in failed";
+			echo "login failed";
 		}
 	}
 ?>

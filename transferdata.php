@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['account'])) {
+		header("location: signin.php");
+	}
 	$user = $_SESSION['account'];
 	$con = mysqli_connect("localhost","root","","eazybanking");
 	if(isset($_POST['check'])) {
@@ -29,6 +32,7 @@
 		$bankcode = $_POST['bankcode'];
 		$other = $_POST['other'];
 		$info = $_POST['info'];
+		$cpin = $_POST['pin'];
 
 		$pre1 = "SELECT * FROM user WHERE account='$user'";
 		if($bankcode != '0001') {
@@ -44,8 +48,14 @@
 		$user2 = mysqli_fetch_assoc($get2);
 		$othername = $user2['name'];
 		$name = $user1['name'];
+		$pin = $user1['pin'];
 
-		$query1 = "INSERT INTO transfer VALUES(null,'$amount','$bankcode','$user','$other','$info')";
+		if($cpin != $pin) {
+			echo "Pin yang dimasukkan salah !";
+			exit;
+		}
+
+		$query1 = "INSERT INTO transfer VALUES(null,'$amount','$bankcode','$user','$other','$info',now())";
 		$query2 = "INSERT INTO activity VALUES(null,now(),'$othername','$info','$amount',1,'$user')";
 		$query3 = "UPDATE user SET balance=balance - $amount WHERE account='$user'";
 		
@@ -59,5 +69,7 @@
 			$exe4 = mysqli_query($con,$query4);
 			$exe5 = mysqli_query($con,$query5);
 		}
+		echo "Transaksi Berhasil !";
+		exit;
 	}
 ?>

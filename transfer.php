@@ -77,7 +77,7 @@
     function confirmation(tujuan,amount) {
         var bank = $("#bank option:selected").text();
         var text = $("#info").val();
-        $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount+"<br>Notes : "+text);
+        $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount+"<br>Notes : "+text+"<br><label>Confirm PIN : </label><input type='password' class='form-control' id='pin' placeholder='PIN'>");
         $("#confirm").modal('show');
     };
     function transfer() {
@@ -95,10 +95,12 @@
                 bankcode: bank,
                 other: $("#acc").val(),
                 amount: $("#amount").val(),
-                info: $("#info").val()
+                info: $("#info").val(),
+                pin: $("#pin").val()
             },
             success: function(res){
-                alert("Transfer OK");
+                alert(res);
+                window.location.href = 'activity.php';
             }
         });
     };

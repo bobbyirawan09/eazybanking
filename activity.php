@@ -1,6 +1,6 @@
 <?php include "basemember.php" ?>
 <?php startblock('title') ?>
-	Eazy Banking
+	Activity
 <?php endblock() ?>
 
 <?php startblock('head') ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 28, 2017 at 05:51 PM
+-- Generation Time: May 29, 2017 at 12:26 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activity` (
   `idactivity` int(11) NOT NULL,
-  `tgl` date NOT NULL,
+  `tgl` datetime NOT NULL,
   `otheruser` varchar(30) NOT NULL,
   `info` varchar(100) NOT NULL,
   `amount` int(11) NOT NULL,
@@ -41,8 +41,20 @@ CREATE TABLE `activity` (
 --
 
 INSERT INTO `activity` (`idactivity`, `tgl`, `otheruser`, `info`, `amount`, `type`, `user`) VALUES
-(1, '2017-05-16', 'DUMMY NAME 2', 'Beli makanan', 500000, 1, '0000000001'),
-(2, '2017-05-31', 'DUMMY NAME 1', 'Bayar Baju', 1500000, 0, '0000000001');
+(1, '2017-05-16 00:00:00', 'DUMMY NAME 2', 'Beli makanan', 500000, 1, '0000000001'),
+(2, '2017-05-31 00:00:00', 'DUMMY NAME 1', 'Bayar Baju', 1500000, 0, '0000000001'),
+(3, '2017-05-29 00:00:00', 'Dummy 2', 'ini hahaha\naa', 10000, 1, '0000000001'),
+(4, '2017-05-29 00:00:00', 'Dummy Name', 'ini hahaha\naa', 10000, 0, '1234567890'),
+(5, '2017-05-29 00:00:00', 'Dummy Others', 'hahahaha\nhehehe', 12300, 1, '0000000001'),
+(6, '2017-05-29 00:00:00', 'Dummy Others', 'coba\nlagii ahhh', 17700, 1, '0000000001'),
+(7, '2017-05-29 00:00:00', 'Dummy 2', 'Untuk yang kemarin ya bro', 500000, 1, '0000000001'),
+(8, '2017-05-29 00:00:00', 'Dummy Name', 'Untuk yang kemarin ya bro', 500000, 0, '1234567890'),
+(9, '2017-05-29 00:00:00', 'Dummy Others', 'bayar ambulan', 10000, 1, '1234567890'),
+(10, '2017-05-29 00:00:00', 'Dummy Name', 'balasan kemairn', 250000, 1, '1234567890'),
+(11, '2017-05-29 00:00:00', 'Dummy 2', 'balasan kemairn', 250000, 0, '0000000001'),
+(12, '2017-05-29 17:19:27', 'Dummy 2', 'lagi nonton naruto\nlol', 10000, 1, '0000000001'),
+(13, '2017-05-29 17:19:27', 'Dummy Name', 'lagi nonton naruto\nlol', 10000, 0, '1234567890'),
+(14, '2017-05-29 17:25:12', 'Dummy Others', 'coba lagi. hahaha', 200000, 1, '0000000001');
 
 -- --------------------------------------------------------
 
@@ -97,8 +109,23 @@ CREATE TABLE `transfer` (
   `bankcode` varchar(4) NOT NULL,
   `user` varchar(15) NOT NULL,
   `otheruser` varchar(30) NOT NULL,
-  `info` varchar(100) NOT NULL
+  `info` varchar(100) NOT NULL,
+  `tgl` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transfer`
+--
+
+INSERT INTO `transfer` (`idtrans`, `amount`, `bankcode`, `user`, `otheruser`, `info`, `tgl`) VALUES
+(2, 10000, '0001', '0000000001', '1234567890', 'ini hahaha\naa', '0000-00-00 00:00:00'),
+(3, 12300, '0005', '0000000001', '0987654321', 'hahahaha\nhehehe', '0000-00-00 00:00:00'),
+(4, 17700, '0005', '0000000001', '0987654321', 'coba\nlagii ahhh', '0000-00-00 00:00:00'),
+(5, 500000, '0001', '0000000001', '1234567890', 'Untuk yang kemarin ya bro', '0000-00-00 00:00:00'),
+(6, 10000, '0005', '1234567890', '0987654321', 'bayar ambulan', '0000-00-00 00:00:00'),
+(7, 250000, '0001', '1234567890', '0000000001', 'balasan kemairn', '0000-00-00 00:00:00'),
+(8, 10000, '0001', '0000000001', '1234567890', 'lagi nonton naruto\nlol', '0000-00-00 00:00:00'),
+(9, 200000, '0005', '0000000001', '0987654321', 'coba lagi. hahaha', '2017-05-29 17:25:12');
 
 -- --------------------------------------------------------
 
@@ -126,8 +153,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `username`, `password`, `pin`, `privilege`, `bankcode`, `balance`, `card`) VALUES
-('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dummy', 'dummy', 'dummy', 0, '0001', 0, 1),
-('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 0, 1);
+('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dummy', 'dummy', 'dummy', 0, '0001', 500000, 1),
+('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 260000, 0);
 
 --
 -- Indexes for dumped tables
@@ -176,12 +203,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `idactivity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idactivity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `transfer`
 --
 ALTER TABLE `transfer`
-  MODIFY `idtrans` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idtrans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --
