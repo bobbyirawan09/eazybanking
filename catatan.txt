@@ -9,14 +9,18 @@ revisi
 -pin 3 kali salah 30 menit
 -history rekening (cache)
 -save pdf per transfer
--jam di activity
 -credit card + utang
 -bunga pajak
 -search activity
--other user + saldo
 -transfer bank lain bayar 6500
 
 isi admin
 -manage member
 -manage transaksi
 -grafik per orang per bulan
+
+
+
+done:
+-jam di activity
+-other user + saldo

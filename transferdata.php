@@ -68,6 +68,9 @@
 			$query5 = "UPDATE user SET balance=balance + $amount WHERE account='$other'";
 			$exe4 = mysqli_query($con,$query4);
 			$exe5 = mysqli_query($con,$query5);
+		}else {
+			$query5 = "UPDATE otheruser SET balance=balance + $amount WHERE account='$other'";
+			$exe5 = mysqli_query($con,$query5);
 		}
 		echo "Transaksi Berhasil !";
 		exit;

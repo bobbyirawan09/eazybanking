@@ -10,6 +10,7 @@
 	$data = array();
 	while($row = mysqli_fetch_assoc($result)) {
 		$temp['tgl'] = date_format(date_create($row['tgl']),"j-F-Y");
+		$temp['hms'] = date_format(date_create($row['tgl']),"g:i:s A");
 		$temp['otheruser'] = $row['otheruser'];
 		$temp['info'] = $row['info'];
 		$temp['amount'] = $row['amount'];
