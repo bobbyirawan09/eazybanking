@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['loggedin'])) {
-		header("location: activity.php");
+		header("location: welcome.php");
 	}
 ?>
 <!DOCTYPE html>
@@ -208,63 +208,151 @@
 		<script>
 			$(document).ready(function() {
 				$("#showpass").click(function() {
-					if($("#password").attr("type") == "text"){
-						$("#password").attr("type","password");
+					if($("#Password").attr("type") == "text"){
+						$("#Password").attr("type","password");
 						$("#mata1").attr("class","glyphicon glyphicon-eye-open");
 					}
 					else {
-						$("#password").attr("type","text");
+						$("#Password").attr("type","text");
 						$("#mata1").attr("class","glyphicon glyphicon-eye-close");
 					}
-				})
+				});
 				$("#showpass2").click(function() {
-					if($("#password2").attr("type") == "text"){
-						$("#password2").attr("type","password");
+					if($("#ConfirmPassword").attr("type") == "text"){
+						$("#ConfirmPassword").attr("type","password");
 						$("#mata2").attr("class","glyphicon glyphicon-eye-open");
 					}
 					else {
-						$("#password2").attr("type","text");
+						$("#ConfirmPassword").attr("type","text");
 						$("#mata2").attr("class","glyphicon glyphicon-eye-close");
 					}
-				})
+				});
+				$("#Username").keyup(function(){
+					checkLength(this,16);
+				});
+				$("#Password").keyup(function(){
+					checkLength(this,16);
+				});
+				$("#Pin").keyup(function(){
+					checkLength(this,8);
+				});
+				$("#ConfirmPassword").keyup(function(){
+					checkLength(this,16);
+				});
+				$("#ConfirmPin").keyup(function(){
+					checkLength(this,8);
+				});
+				$("#Phone").keyup(function(){
+					checkLength(this,15);
+				});
+				$("#form1").click(function(){
+					if(!$("#Username").val() || !$("#Phone").val() || !$("#Password").val()) {
+						alert("Mohon isi form untuk melanjutkan registrasi");
+						return;
+					}
+					if($("#Password").val().length < 8){ 
+						alert("Panjang password minimal 8 karakter");
+						return;
+					}
+					if(checkSama("#Password","#ConfirmPassword")){
+						var $active = $('.wizard .nav-tabs li.active');
+				    	$active.next().removeClass('disabled');
+				    	nextTab($active);	
+					}
+					else{
+						alert("Konfirmasi Password Salah !");
+					}
+				});
+				$("#form2").click(function(){
+					if(!$("#Nama").val() || !$("#Alamat").val() || !$("#TanggalLahir").val()) {
+						alert("Mohon isi form untuk melanjutkan registrasi");
+						return;
+					}
+					else {
+						var $active = $('.wizard .nav-tabs li.active');
+				    	$active.next().removeClass('disabled');
+				    	nextTab($active);
+					}
+				});
+				$("#finalform").click(function(){
+					if(!$("#Email").val() || !$("#Pin").val()) {
+						alert("Mohon isi form untuk melanjutkan registrasi");
+						return;
+					}
+					if($("#Pin").val().length < 4){ 
+						alert("Panjang pin minimal 4 karakter");
+						return;
+					}
+					if(checkSama("#Pin","#ConfirmPin")){
+						var $active = $('.wizard .nav-tabs li.active');
+				    	$active.next().removeClass('disabled');
+				    	nextTab($active);
+				    	registration();
+					}
+					else {
+						alert("Konfirmasi Pin Salah !");
+					}
+				});
 			});
 			$(document).ready(function () {
-    //Initialize tooltiptips
-    $('.nav-tabs > li a[title]').tooltip();
+			    //Initialize tooltiptips
+			    $('.nav-tabs > li a[title]').tooltip();
+				    //Wizard
+			    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+			    	var $target = $(e.target);
+			    	if ($target.parent().hasClass('disabled')) {
+			    		return false;
+			    	}
+			    });
+			    $(".prev-step").click(function (e) {
+			    	var $active = $('.wizard .nav-tabs li.active');
+			    	prevTab($active);
 
-	    //Wizard
-	    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-
-	    	var $target = $(e.target);
-
-	    	if ($target.parent().hasClass('disabled')) {
-	    		return false;
-	    	}
-	    });
-
-	    $(".next-step").click(function (e) {
-
-	    	var $active = $('.wizard .nav-tabs li.active');
-	    	$active.next().removeClass('disabled');
-	    	nextTab($active);
-
-	    });
-	    $(".prev-step").click(function (e) {
-
-	    	var $active = $('.wizard .nav-tabs li.active');
-	    	prevTab($active);
-
-	    });
-	    /*Floating label java script*/
-	    $('.form-control').on('focus blur', function (e) {
-	    	$(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
-	    }).trigger('blur');
-	});
+			    });
+			    /*Floating label java script*/
+			    $('.form-control').on('focus blur', function (e) {
+			    	$(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+			    }).trigger('blur');
+			});
+			function checkLength(v,l) {
+				var str = v.value;
+				var len = str.length;
+				if(len > l) {
+					v.value = str.substr(0,l);
+				}
+			}
+			function checkSama(v1,v2){
+				var pass1 = $(v1).val();
+				var pass2 = $(v2).val();
+				if(pass1 != pass2){
+					return false;
+				}
+				return true;
+			}
 			function nextTab(elem) {
 				$(elem).next().find('a[data-toggle="tab"]').click();
 			}
 			function prevTab(elem) {
 				$(elem).prev().find('a[data-toggle="tab"]').click();
+			}
+			function registration(){
+				$.ajax({
+					url: "registration.php",
+					type: "POST",
+					async: "false",
+					data: {
+						regis: 1,
+						username: $("#Username").val(),
+						password: $("#Password").val(),
+						email: $("#Email").val(),
+						nama: $("#Nama").val(),
+						alamat: $("#Alamat").val(),
+						phone: $("#Phone").val(),
+						pin: $("#Pin").val(),
+						dob: $("#TanggalLahir").val()
+					},
+					success: function(result){}
+				});
 			}
 		</script>
 	</head>
@@ -320,32 +408,32 @@
 									<form method="post" action="" class="centered" >
 										<hr>
 										<div class="row">
-											<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+											<div class="col-md-6 col-md-offset-3">
 												<div class="form-group">
 													<label class="control-label">
 														Username
 													</label>
-													<input type="text" name="Username" class="form-control">
+													<input type="text" id="Username" class="form-control">
 												</div>
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+											<div class="col-md-6 col-md-offset-3">
 												<div class="form-group">
-													<label class="control-label">
-														Email
-													</label>
-													<input type="email" name="Email" class="form-control">
+													<div class="control-label">
+														No. HP
+													</div>
+												<input type="text" id="Phone" class="form-control">
 												</div>
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+											<div class="col-md-6 col-md-offset-3">
 												<div class="form-group">
 													<div class="control-label">
 														Password
 													</div>
-													<input id="password" type="password" name="Password" class="form-control">
+													<input type="password" id="Password" class="form-control">
 												</div>
 											</div>
 											<button style="padding-left: -10px;margin-top: 21px;" class="btn btn-default" id="showpass" type="button">
@@ -353,12 +441,12 @@
 											</button>
 										</div>
 										<div class="row">
-											<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+											<div class="col-md-6 col-md-offset-3">
 												<div class="form-group">
 													<div class="control-label">
 														Confirm password
 													</div>
-													<input id="password2" type="password" name="ConfirmPassword" class="form-control">
+													<input type="password" id="ConfirmPassword" class="form-control">
 												</div >
 											</div>
 											<button style="padding-left: -10px;margin-top: 21px;" class="btn btn-default" id="showpass2" type="button">
@@ -367,47 +455,47 @@
 										</div>
 									</form>
 									<ul class="list-inline pull-right">
-										<li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+										<li><button type="button" id="form1" class="btn btn-primary next-step">Save and continue</button></li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="step2">
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+										<div class="col-md-6 col-md-offset-3">
 											<div class="form-group">
 												<label class="control-label">
 													Nama
 												</label>
-												<input type="text" name="Nama" class="form-control">
+												<input type="text" id="Nama" class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+										<div class="col-md-6 col-md-offset-3">
 											<div class="form-group">
 												<label class="control-label">
 													Alamat
 												</label>
-												<input type="text" name="Alamat" class="form-control">
+												<input type="text" id="Alamat" class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6 col-md-offset-3" style="padding-bottom: 10px;">
+										<div class="col-md-6 col-md-offset-3">
 											<div class="form-group">
 												<label class="control-label">
 													Tanggal lahir
 												</label>
-												<input type="text" name="TanggalLahir" class="form-control">
+												<input type="date" id="TanggalLahir" class="form-control">
 											</div>
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
 										<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-										<li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+										<li><button type="button" id="form2" class="btn btn-primary next-step">Save and continue</button></li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="step3">
-									<div class="row" style="padding-bottom: 30px;">
+									<div class="row">
 										<div class="col-md-6 col-md-offset-1">
 											<h3><strong>Masukkan nomor handphone anda</strong></h3>
 											<p>Ketika anda menginputkan nomor handphone anda yang benar dan sesuai ketentuan, kami akan mengirimkan kode verifikasi</p>
@@ -419,36 +507,36 @@
 									<div class="row " style="padding-top: 30px;">
 										<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; padding-bottom: 30px; margin-top: -200px;">
 											<div class="form-group">
-												<div class="control-label">
-													No. HP
+													<label class="control-label">
+														Email
+													</label>
+													<input type="email" id="Email" class="form-control">
 												</div>
-												<input type="text" name="Username" class="form-control">
-											</div>
 										</div>
 									</div>
-									<div class="row " style="padding-top: 80px;">
+									<div class="row " style="padding-top: 70px;">
 										<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; padding-bottom: 30px; margin-top: -200px;">
 											<div class="form-group">
 												<div class="control-label">
-													Masukkan nomor pin, maks. 6 angka
+													Masukkan nomor pin
 												</div>
-												<input type="text" name="Username" class="form-control">
+												<input type="password" id="Pin" class="form-control">
 											</div>
 										</div>
 									</div>
-									<div class="row " style="padding-top: 80px;">
+									<div class="row " style="padding-top: 70px;">
 										<div class="col-md-6 col-md-offset-1" style="padding-left: 14px; padding-bottom: 30px; margin-top: -200px;">
 											<div class="form-group">
 												<div class="control-label">
 													Confirm pin kalian
 												</div>
-												<input type="text" name="Username" class="form-control">
+												<input type="password" id="ConfirmPin" class="form-control">
 											</div>
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
 										<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-										<li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+										<li><button type="button" id="finalform" class="btn btn-success btn-info-full next-step">Submit</button></li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="complete">

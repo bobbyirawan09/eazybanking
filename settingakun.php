@@ -1,8 +1,3 @@
-<?php include "basemember.php" ?>
-<?php startblock('title') ?>
-Eazy Banking
-<?php endblock() ?>
-<?php startblock('head') ?>
 <style type="">
 	.form-control-placeholder {
 		position: absolute;
@@ -19,8 +14,6 @@ Eazy Banking
 		top: -45px;
 	}	
 </style>
-<?php endblock() ?>
-<?php startblock('body') ?>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3" style="padding-bottom: 30px">
 		<div class="form-group">
@@ -93,4 +86,3 @@ Eazy Banking
 		</div>
 	</div>
 </div>
-<?php endblock() ?>

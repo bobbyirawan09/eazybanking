@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['loggedin'])) {
-		header("location: activity.php");
+		header("location: welcome.php");
 	}
 ?>
 <!DOCTYPE html>
@@ -46,14 +46,15 @@
 		$user = $_POST['username'];
 		$pass = $_POST['password'];
 		$con = mysqli_connect("localhost","root","","eazybanking");
-		$query = "SELECT account FROM user WHERE username='$user' AND password='$pass'";
+		$query = "SELECT account,card FROM user WHERE username='$user' AND password='$pass'";
 		$res = mysqli_query($con,$query);
 		$log = mysqli_fetch_assoc($res);
 		echo $log['account'];
 		if($log) {
 			$_SESSION['loggedin'] = 1;
 			$_SESSION['account'] = $log['account'];
-			header("location: activity.php");
+			$_SESSION['card'] = $log['card'];
+			header("location: welcome.php");
 		}
 		else {
 			echo "login failed";

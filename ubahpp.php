@@ -1,8 +1,4 @@
-<?php require_once 'basemember.php' ?>
-<?php startblock('title') ?>
-Eazy banking
-<?php endblock() ?>
-<?php startblock ('head') ?>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -39,8 +35,7 @@ $('#gambarpp').on('change', function(){
 	var a=$(this).val();
 });
 </script>
-<?php endblock() ?>
-<?php startblock('body') ?>
+
 <div class="container">
 		<div class="row">
 			<div class="col-md-6" style="padding-top: 50px; padding-left: 480px">
@@ -78,4 +73,3 @@ $('#gambarpp').on('change', function(){
 		</div>
 		</center>
 </div>
-<?php endblock() ?>

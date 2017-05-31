@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 29, 2017 at 12:26 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Host: 127.0.0.1
+-- Generation Time: May 31, 2017 at 09:20 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -54,7 +54,8 @@ INSERT INTO `activity` (`idactivity`, `tgl`, `otheruser`, `info`, `amount`, `typ
 (11, '2017-05-29 00:00:00', 'Dummy 2', 'balasan kemairn', 250000, 0, '0000000001'),
 (12, '2017-05-29 17:19:27', 'Dummy 2', 'lagi nonton naruto\nlol', 10000, 1, '0000000001'),
 (13, '2017-05-29 17:19:27', 'Dummy Name', 'lagi nonton naruto\nlol', 10000, 0, '1234567890'),
-(14, '2017-05-29 17:25:12', 'Dummy Others', 'coba lagi. hahaha', 200000, 1, '0000000001');
+(14, '2017-05-29 17:25:12', 'Dummy Others', 'coba lagi. hahaha', 200000, 1, '0000000001'),
+(15, '2017-05-31 11:24:36', 'Dummy Others', 'coba aja hallow', 10000, 1, '1234567890');
 
 -- --------------------------------------------------------
 
@@ -139,6 +140,7 @@ CREATE TABLE `user` (
   `address` varchar(50) NOT NULL,
   `dob` date NOT NULL,
   `phone` varchar(15) NOT NULL,
+  `email` varchar(40) NOT NULL,
   `username` varchar(16) NOT NULL,
   `password` varchar(16) NOT NULL,
   `pin` varchar(8) NOT NULL,
@@ -152,9 +154,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `username`, `password`, `pin`, `privilege`, `bankcode`, `balance`, `card`) VALUES
-('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dummy', 'dummy', 'dummy', 0, '0001', 500000, 1),
-('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 260000, 0);
+INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `email`, `username`, `password`, `pin`, `privilege`, `bankcode`, `balance`, `card`) VALUES
+('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dumm@dumb.ass', 'dummy', 'dummy', 'dummy', 0, '0001', 500000, 1),
+('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2@dumb.ass', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 200000, 0);
 
 --
 -- Indexes for dumped tables
@@ -203,12 +205,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `idactivity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idactivity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `transfer`
 --
 ALTER TABLE `transfer`
-  MODIFY `idtrans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idtrans` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --

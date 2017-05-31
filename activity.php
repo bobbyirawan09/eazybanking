@@ -1,10 +1,4 @@
-<?php include "basemember.php" ?>
-<?php startblock('title') ?>
-	Activity
-<?php endblock() ?>
-
-<?php startblock('head') ?>
-  <style type="text/css">
+ <style type="text/css">
     .column {
       float: left;
     }
@@ -15,7 +9,7 @@
       width: 70%;
     }
   </style>
-  <script>
+  <script type="text/javascript">
     $(document).ready(function(){
       showActivity();
     });
@@ -27,6 +21,7 @@
         success: function(result){
           var debit = 0;
           var credit = 0;
+          var cek = 1;
           for (i in result) {
             if(result[i].type == 1) {
               $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1><span class="glyphicon glyphicon-calendar"></span></h1></div><h3><span class="label label-info">'+result[i].tgl+'</span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-danger">-Rp '+result[i].amount+'</span></h2></div></div>');
@@ -36,6 +31,10 @@
               $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1><span class="glyphicon glyphicon-calendar"></span></h1></div><h3><span class="label label-info">'+result[i].tgl+'</span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-success">+Rp '+result[i].amount+'</span></h2></div></div>');
               debit += parseInt(result[i].amount);
             }
+            cek = 0;
+          }
+          if(cek == 1) {
+            $("#activity").html('No data recorded yet');
           }
           var total = debit - credit;
           $("#debit").html("Rp "+debit);
@@ -45,9 +44,6 @@
       });
     }
   </script>
-<?php endblock() ?>
-
-<?php startblock('body') ?>
 <div class="container">
   <div class="page-header">
       <h1>Activity</h1>
@@ -61,7 +57,7 @@
 
     <div class="row">
       <div class="col-md-4 col-md-offset-1">
-        <h3 style="color: green; text-align: right;">Debit</h3>
+        <h3 style="color: green; text-align: right;">Earned</h3>
       </div>
       <div class="col-md-7">
         <h3 style="color: green;" id="debit"></h3>
@@ -70,7 +66,7 @@
 
     <div class="row">
       <div class="col-md-4 col-md-offset-1">
-        <h3 style="color: red; text-align: right;">Credit</h3>
+        <h3 style="color: red; text-align: right;">Spent</h3>
       </div>
       <div class="col-md-7">
         <h3 style="color: red;" id="credit"></h3>
@@ -90,4 +86,3 @@
   </div>
 </div>
 <br><br>
-<?php endblock() ?>

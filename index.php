@@ -1,10 +1,79 @@
-<?php include 'base.php' ?>
-<?php startblock('title') ?>
-	Eazy Banking
-<?php endblock() ?>
-
-<?php startblock('head') ?>
-	<link rel="stylesheet" href="bootstrap/css/carousel.css">
+<?php 
+	session_start();
+	if(isset($_GET['logout'])) {
+	    session_unset();
+	    session_destroy();
+	}
+	if(isset($_SESSION['loggedin'])) {
+		header("location: activity.php");
+	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+img{
+	width: 51px;
+	height: 48px;
+	display: block;
+}
+nav{
+	font-family: 
+}
+#nama{
+	border-left: 2px solid;
+	padding-left: 10px;
+}
+#gambar{
+	padding-right: 10px;
+}
+li:hover{
+	background-color: #ffffff;
+}
+#bar{
+	color: #000000;
+}
+nav{
+	background-color: #ffffff;
+}
+.geteasy {
+	background-image: url("assets/pattern-birdfeet.png");
+	background-repeat: repeat;
+	padding: 5%;
+}
+.foot {
+	background-color: #e7f5fe;
+	color: #333e48;
+	padding: 5%;
+}
+.sliding-middle-out {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+.sliding-middle-out:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+	width: 100%;
+	background: blue;
+}
+#nyala{
+	border-bottom: blue solid 1px;	
+}
+</style>
+	<title>
+	  Eazy Banking
+	</title>
+	<link rel="icon" type="image/png" href="assets/ez.png"> 	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="bootstrap/css/carousel.css">
 	<script src="bootstrap/js/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <style type="text/css">
@@ -19,117 +88,109 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
     }
   </style>
-<?php endblock() ?>
+  <script>
+  function Navigation(nav) {
+		$.ajax({
+			url: nav,
+			type: "POST",
+			async: "false",
+			success: function(result){
+				$("#body").html(result);
+			}
+		});
+	}
+  	$(document).ready(function(){
+  		Navigation("home.php");
+  	});
+  </script>
+</head>
+<body>
+	<nav class="nav navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="pull-left" href="index.php"> 
+					<img src="assets/ez_logo.png" style="width: 110px; height: 50px;" id="gambar"> 
+				</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="index.php" class="sliding-middle-out" id="home">Home</a></li>
+				<li><a href="#features" class="sliding-middle-out" id="features">Features</a></li>
+				<li><a href="signin.php" class="sliding-middle-out" id="login">Log in</a></li>
+				<a href="signup.php"><button class="btn btn-primary navbar-btn">Get Eazy!</button></a>
+			</ul>
+		</div>	
+	</nav>
 
-<?php startblock('body') ?>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img class="first-slide" src="assets/hero-cafe.jpg" alt="First slide">
-      <div class="container">
-        <div class="caption">
-          <h1><strong>Save Easily. Bank Beautifully.</strong><br>
-          <small style="color: white;">Open your Account in just a couple of minutes</small></h1><br>
-          <a href="signup.php"><button class="btn btn-primary btn-lg">Get Eazy</button></a></p>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <img class="second-slide" src="assets/home-sts.jpg" alt="Second slide">
-      <div class="container">
-        <div class="caption" style="top: 70%; left: 2%;">
-          <h1><strong>Always know what's Safe-to-Spend.</strong><br>
-          <small style="color: white;">Smart spending is just like saving.</small></h1><br>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <img class="third-slide" src="assets/activity.jpg" alt="Third slide">
-      <div class="container">
-        <div class="caption" style="top: 70%; left: 5%;">
-          <h1><strong>See all your daily ebbs and flows.</strong><br>
-          <small style="color: white;">A friendly notification will let you know every time one of you spends from your account, keeping you well-acquainted with your finances.</small></h1><br>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+	<div id="body">
+	</div>
 
-<div class="container">
-  <div class="row featurette">
-    <div class="col-md-6" style="padding-top: 5%;">
-      <h2 class="section-heading"><strong>This is Eazy.</strong></h2>
-      <hr>
-      <p class="lead text-justify">It’s the whole idea of banking, remade with lovely design, equally lovely tools to help you save (right inside your account), and genuine human goodness.</p>
-    </div>
-    <div class="col-md-6">
-      <img class="img-rounded" style="width: 100%; height: 100%;" src="assets/ez-kit.png">
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-6 col-md-push-6" style="padding-top: 5%;">
-      <h2 class="section-heading text-right"><strong>Set Goals to save automatically.</strong></h2>
-      <hr>
-      <p class="lead text-right">Heartening, easy wins. Ticking up every day in the background.</p>
-    </div>
-    <div class="col-md-6 col-md-pull-6">
-       <img class="img-rounded" style="width: 100%; height: 100%;" src="assets/goals-01.gif">
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div class="col-md-6" style="padding-top: 5%;">
-      <h2 class="section-heading"><strong>Use Goals for anything.</strong></h2>
-      <hr>
-      <p class="lead">From huge dreams to helpful budgets.</p>
-    </div>
-    <div class="col-md-6">
-      <img class="img-rounded" style="width: 100%; height: 100%;" src="assets/illustration-home-goal.png">
-    </div>
-  </div>
-
-<br>
-</div>
-  <div class="row featurette geteasy">
-    <div class="col-md-offset-1">
-      <h1 style="color: #0088ff;"><strong>And all along the way :<br>
-      No Fees!</strong><br>
-      <small style="color: #0088ff;">We don't charge those. For anything.</small>
-      </h1>
-    </div>
-  </div>
-  <br>
-  <div class="row featurette">
-    <div class="col-md-4 col-md-offset-1">
-      <img style="width: 100%; height: 100%;" src="assets/withyou.png"><br>
-      <h3 style="text-align: center;"><strong>No branches means no errands.</strong><br><small>
-      Deposit checks and make transfers from your phone. It’s all kinds of convenient.</small></h3>
-    </div>
-    <div class="col-md-4 col-md-offset-2">
-      <img style="width: 100%; height: 100%;" src="assets/yourback.png"><br><br>
-      <h3 style="text-align: center;"><strong>An account that's FDIC-insured.</strong><br><small>
-      Through our intrepid partner banks.* Plus support from friendly humans.</small></h3>
-    </div>
-  </div>
-
-<br><br>
-<?php endblock() ?>
+	<div class="container-fluid geteasy">
+		<div class="container">
+			<h1 style="color: #0088ff;"><strong>Save Easily. Bank Beautifully.</strong><br>
+			<small style="color: #0088ff;">Open your Account in just a couple of minutes</small></h1><br>
+			<a href="signup.php"><button class="btn btn-primary btn-lg">Get Eazy</button></a>
+		</div>
+	</div>
+	<footer class="foot">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					About us
+					<hr>
+				</div>
+				<div class="col-md-4">
+					Find Us At
+					<hr>
+					<div class="row">
+					<a href="https://github.com/taezatria/eazybanking">
+						<div class="col-md-3">
+							<img src="assets/github-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>GitHub EazyBanking</label>
+						</div>
+					</a>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/twitter-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>Twitter @EazyBanking</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/instagram-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>Instagram eazybanking99</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					Have any Question?
+					Contact us !
+					<hr>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/gmail-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>cssupport@eazy.bank</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<img src="assets/whatsapp-logo.png" style="width: 50px; height: 50px; margin: 0 auto;">
+						</div>
+						<div class="col-md-9" style="padding: 15px 0;">
+							<label>+1 3457 8414</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  	</footer>
+</body>
+</html>

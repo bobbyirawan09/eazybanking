@@ -1,4 +1,11 @@
 -about us
+
 -features (?)
+
 -sign up belum berfungsi
--ubah account belum berfungsi
+
+-setting account belum berfungsi
+
+-ADMIN
+-generate CODE
+-perbaiki desain

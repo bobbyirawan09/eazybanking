@@ -1,9 +1,3 @@
-<?php include "basemember.php" ?>
-<?php startblock('title') ?>
-    Transfer
-<?php endblock() ?>
-
-<?php startblock('head') ?>
 <script>
     function checkNum(ini) {
         var str = ini.value;
@@ -49,7 +43,6 @@
         var uang = 1;
         var account = $("#acc").val();
         var amount = $("#amount").val();
-        var me = <?php echo '"'.$_SESSION['account'].'"'; ?>;
         var tujuan;
         if(parseInt(amount) < 10000) {
             alert("Jumlah transfer minimal Rp 10.000");
@@ -100,7 +93,7 @@
             },
             success: function(res){
                 alert(res);
-                window.location.href = 'activity.php';
+                window.location.href = 'welcome.php';
             }
         });
     };
@@ -119,9 +112,7 @@
         });
     });
 </script>
-<?php endblock() ?>
 
-<?php startblock('body') ?>
 <div class="container">
 	<div class="row">
 	<div class="col-sm-10 col-sm-offset-1">
@@ -190,4 +181,3 @@
     </div>
 
 </div>
-<?php endblock() ?>
