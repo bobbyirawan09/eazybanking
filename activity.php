@@ -85,17 +85,7 @@
   	<div class="col-md-4">
     	<h1>Activity</h1>
     </div>
-	<div class="col-md-4"><!--
-		<div class="form-group" style="padding-top: 15px;">
-			<div class="input-append date" id="tgl" data-date="05-2001" data-date-format="mm-yyyy">
-				<input class="span2" size="16" type="text" value="05-2001">
-				<span class="add-on"><i class="icon-th"></i></span>
-			</div>
-			<button class="btn btn-default" id="search" type="submit">
-				<i id="iconpass" class="glyphicon glyphicon-search"></i>
-			</button>
-		</div> -->
-
+	<div class="col-md-4">
       <div class="input-group" style="padding-top: 15px;">
         <input type="month" id="tgl" class="form-control">
          <div class="input-group-btn">
