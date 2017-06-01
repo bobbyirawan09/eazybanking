@@ -14,7 +14,7 @@ revisi
 -save pdf per transfer
 -credit card + utang
 -bunga pajak
--activity paging atau .....
+-activity dibuat paging atau .....
 
 
 done:
