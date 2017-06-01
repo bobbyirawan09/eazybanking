@@ -96,12 +96,14 @@
 			</button>
 		</div> -->
 
-    <div class="form-group" style="padding-top: 15px;">
-      <input type="month" id="tgl">
-      <button class="btn btn-default" id="search" type="submit">
-        <i id="iconpass" class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
+      <div class="input-group" style="padding-top: 15px;">
+        <input type="month" id="tgl" class="form-control">
+         <div class="input-group-btn">
+            <button class="btn btn-default" id="search" type="submit">
+              <i id="iconpass" class="glyphicon glyphicon-search"></i>
+            </button>
+         </div>
+      </div>
 	</div>
 	</div>
 	<hr style="margin-top: 0px; margin-bottom: 30px;">
