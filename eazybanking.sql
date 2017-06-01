@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 01, 2017 at 07:18 AM
+-- Generation Time: Jun 01, 2017 at 10:17 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -150,16 +150,17 @@ CREATE TABLE `user` (
   `balance` int(11) NOT NULL,
   `card` int(1) NOT NULL,
   `status` int(1) NOT NULL,
-  `counter` int(1) NOT NULL
+  `counter` int(1) NOT NULL,
+  `timer` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `email`, `username`, `password`, `pin`, `privilege`, `bankcode`, `balance`, `card`, `status`, `counter`) VALUES
-('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dumm@dumb.ass', 'dummy', 'dummy', 'dummy', 0, '0001', 500000, 1, 1, 0),
-('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2@dumb.ass', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 200000, 0, 1, 0);
+INSERT INTO `user` (`account`, `name`, `address`, `dob`, `phone`, `email`, `username`, `password`, `pin`, `privilege`, `bankcode`, `balance`, `card`, `status`, `counter`, `timer`) VALUES
+('0000000001', 'Dummy Name', 'Dummy Address 99', '2000-01-01', '031-1234567', 'dumm@dumb.ass', 'dummy', 'dummy', 'dummy', 0, '0001', 500000, 1, 1, 0, '0000-00-00 00:00:00'),
+('1234567890', 'Dummy 2', 'Dummy Address 2', '1999-01-31', '021-1122334', 'dummy2@dumb.ass', 'dummy2', 'dummy2', 'dummy2', 0, '0001', 200000, 0, 1, 0, '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables

@@ -12,8 +12,40 @@
   <script type="text/javascript">
     $(document).ready(function(){
     	showActivity();
-
+      $("#search").click(function(){
+        var test = $("#tgl").val();
+        search(test);
+      });
     });
+    function search(tgl){
+      $.ajax({
+        url: "activityData.php",
+        type: "POST",
+        dataType: "JSON",
+        data: {
+          search: 1,
+          mon: tgl
+        },
+        success: function(result){
+          var cek = 1;
+          $("#activity").html("");
+          for (i in result) {
+            if(result[i].type == 1) {
+              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1 style="margin-top: 0px;"><span class="glyphicon glyphicon-calendar"></span></h1></div><h3 style="margin-top: 0px;"><span class="label label-info">'+result[i].tgl+'</span><br><small>&nbsp&nbsp&nbsp<span class="label label-info"><span class="glyphicon glyphicon-time"></span>&nbsp'+result[i].hms+'</small></span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-danger">-Rp '+result[i].amount+'</span></h2></div></div>');
+              credit += parseInt(result[i].amount);
+            }
+            else if(result[i].type == 0){
+              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1 style="margin-top: 0px;"><span class="glyphicon glyphicon-calendar"></span></h1></div><h3 style="margin-top: 0px;"><span class="label label-info">'+result[i].tgl+'</span><br><small>&nbsp&nbsp&nbsp<span class="label label-info"><span class="glyphicon glyphicon-time"></span>&nbsp'+result[i].hms+'</small></span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-success">+Rp '+result[i].amount+'</span></h2></div></div>');
+              debit += parseInt(result[i].amount);
+            }
+            cek = 0;
+          }
+          if(cek == 1) {
+            $("#activity").html('No data recorded yet');
+          }
+        }
+      });
+    }
     function showActivity() {
       $.ajax({
         url: "activityData.php",
@@ -28,11 +60,11 @@
           var cek = 1;
           for (i in result) {
             if(result[i].type == 1) {
-              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1 style="margin-top: 0px;"><span class="glyphicon glyphicon-calendar"></span></h1></div><h3 style="margin-top: 0px;"><span class="label label-info">'+result[i].tgl+'</span><br><small>&nbsp&nbsp&nbsp&nbsp<span class="label label-info"><span class="glyphicon glyphicon-time"></span>&nbsp'+result[i].hms+'</small></span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-danger">-Rp '+result[i].amount+'</span></h2></div></div>');
+              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1 style="margin-top: 0px;"><span class="glyphicon glyphicon-calendar"></span></h1></div><h3 style="margin-top: 0px;"><span class="label label-info">'+result[i].tgl+'</span><br><small>&nbsp&nbsp&nbsp<span class="label label-info"><span class="glyphicon glyphicon-time"></span>&nbsp'+result[i].hms+'</small></span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-danger">-Rp '+result[i].amount+'</span></h2></div></div>');
               credit += parseInt(result[i].amount);
             }
             else if(result[i].type == 0){
-              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1 style="margin-top: 0px;"><span class="glyphicon glyphicon-calendar"></span></h1></div><h3 style="margin-top: 0px;"><span class="label label-info">'+result[i].tgl+'</span><br><small>&nbsp&nbsp&nbsp&nbsp<span class="label label-info"><span class="glyphicon glyphicon-time"></span>&nbsp'+result[i].hms+'</small></span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-success">+Rp '+result[i].amount+'</span></h2></div></div>');
+              $("#activity").append('<div class="row well"><div class="col-md-3"><div class="col-md-offset-4"><h1 style="margin-top: 0px;"><span class="glyphicon glyphicon-calendar"></span></h1></div><h3 style="margin-top: 0px;"><span class="label label-info">'+result[i].tgl+'</span><br><small>&nbsp&nbsp&nbsp<span class="label label-info"><span class="glyphicon glyphicon-time"></span>&nbsp'+result[i].hms+'</small></span></h3></div><div class="col-md-6"><h3 style="padding-top: 15px;">'+result[i].otheruser+'<br><small>'+result[i].info+'</small></h3></div><div class="col-md-3"><h2 style="padding-top: 15px;"><span class="label label-success">+Rp '+result[i].amount+'</span></h2></div></div>');
               debit += parseInt(result[i].amount);
             }
             cek = 0;
@@ -63,6 +95,13 @@
 				<i id="iconpass" class="glyphicon glyphicon-search"></i>
 			</button>
 		</div> -->
+
+    <div class="form-group" style="padding-top: 15px;">
+      <input type="month" id="tgl">
+      <button class="btn btn-default" id="search" type="submit">
+        <i id="iconpass" class="glyphicon glyphicon-search"></i>
+      </button>
+    </div>
 	</div>
 	</div>
 	<hr style="margin-top: 0px; margin-bottom: 30px;">

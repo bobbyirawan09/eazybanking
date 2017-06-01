@@ -3,6 +3,7 @@
 	if(!isset($_SESSION['account'])) {
 		header("location: signin.php");
 	}
+	date_default_timezone_set("Asia/Jakarta");
 	$user = $_SESSION['account'];
 	$con = mysqli_connect("localhost","root","","eazybanking");
 	if(isset($_POST['check'])) {
@@ -51,7 +52,18 @@
 		$pin = $user1['pin'];
 
 		if($cpin != $pin) {
-			echo "Pin yang dimasukkan salah !";
+			$data['msg'] = "Pin yang dimasukkan salah !";
+			$ex = mysqli_query($con,"SELECT counter FROM user WHERE account='$user'");
+			$c = mysqli_fetch_assoc($ex);
+			$time = date("Y-m-d H:i:s");
+			if($c['counter'] >= 2){
+				$ex2 = mysqli_query($con,"UPDATE user SET counter=0, status=0, timer='$time' WHERE account='$user'");
+				$data['suspend'] = 1;
+			}
+			else {
+				$ex2 = mysqli_query($con,"UPDATE user SET counter=counter+1, timer='$time' WHERE account='$user'");
+			}
+			echo json_encode($data);
 			exit;
 		}
 
@@ -73,12 +85,12 @@
 		}
 		$exe3 = mysqli_query($con,$query3);
 
-		echo "Transaksi Berhasil !";
+		$data['msg'] = "Transaksi Berhasil !";
+		echo json_encode($data);
 		exit;
 	}
 	if(isset($_POST['history'])) {
-		$me = $_SESSION['account'];
-		$query = "SELECT otheruser,bankcode FROM transfer WHERE user='$me'";
+		$query = "SELECT otheruser,bankcode FROM transfer WHERE user='$user'";
 		$exe = mysqli_query($con,$query);
 		$data = array();
 		while($row = mysqli_fetch_assoc($exe)) {
@@ -102,6 +114,30 @@
 				$temp['name'] = $row2['name'];
 				array_push($data,$temp);
 			}
+		}
+		echo json_encode($data);
+	}
+	if(isset($_POST['cek'])) {
+		$query = "SELECT timer,status,counter FROM user WHERE account='$user'";
+		$exe = mysqli_query($con,$query);
+		$row = mysqli_fetch_assoc($exe);
+		if($row['counter'] > 0 || $row['status'] == 0) {
+			$time1 = strtotime($row['timer']);
+			$time2 = strtotime(date("Y-m-d H:i:s"));
+			$hasil = ($time2 - $time1)/60;
+			if($hasil < 30 && $row['status'] == 0) {
+				$data['timer'] = 0;
+			}
+			else if($hasil >= 30){
+				$ex = mysqli_query($con, "UPDATE user SET counter=0, timer=DEFAULT, status=1 WHERE account='$user'");
+				$data['timer'] = 1;
+			}
+			else {
+				$data['timer'] = 1;
+			}
+		}
+		else {
+			$data['timer'] = 1;
 		}
 		echo json_encode($data);
 	}

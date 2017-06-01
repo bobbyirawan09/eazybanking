@@ -80,7 +80,7 @@
         $.ajax({
             url: "transferdata.php",
             type: "POST",
-            async: "false",
+            dataType: "JSON",
             data: {
                 transfer: 1,
                 bankcode: $("#bank").val(),
@@ -90,7 +90,11 @@
                 pin: $("#pin").val()
             },
             success: function(res){
-                alert(res);
+                alert(res.msg);
+                if(res.suspend) {
+                    alert("Your Account Suspended for 30 mins");
+                    window.location.href = "welcome.php";
+                }
             }
         });
     };
@@ -110,10 +114,29 @@
             }
         })
     }
+    function checkStatus(){
+        $.ajax({
+            url: "transferdata.php",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                cek: 1
+            },
+            success: function(res){
+                if(res.timer == 1){
+                    $("#showbank").hide();
+                    $("#showacc").hide();
+                    showHistory();
+                }
+                else {
+                    alert("Your Account is Suspended");
+                    window.location.href = "welcome.php";
+                }
+            }
+        });
+    }
     $(document).ready(function(){
-        $("#showbank").hide();
-        $("#showacc").hide();
-        showHistory();
+        checkStatus();
         $("#showhistory").change(function(){
             if($("#history").val() == "new") {
                 $("#bank").val("none");

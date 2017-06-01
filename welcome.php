@@ -3,6 +3,7 @@
 	if(!isset($_SESSION['loggedin'])){
 		header("location: signin.php");
 	}
+	date_default_timezone_set("Asia/Jakarta");
 	function generateRandomString($length = 8) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);

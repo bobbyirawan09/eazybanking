@@ -11,13 +11,10 @@ isi admin
 -grafik per orang per bulan
 
 revisi
--pin 3 kali salah 30 menit
 -save pdf per transfer
 -credit card + utang
 -bunga pajak
--search activity
-
-
+-activity paging atau .....
 
 
 done:
@@ -25,3 +22,5 @@ done:
 -other user + saldo
 -history rekening (cache)
 -transfer bank lain bayar 6500
+-pin 3 kali salah 30 menit
+-search activity
