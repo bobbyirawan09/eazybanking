@@ -11,13 +11,17 @@
   </style>
   <script type="text/javascript">
     $(document).ready(function(){
-      showActivity();
+    	showActivity();
+
     });
     function showActivity() {
       $.ajax({
         url: "activityData.php",
         type: "POST",
         dataType: "JSON",
+        data: {
+        	load: 1
+        },
         success: function(result){
           var debit = 0;
           var credit = 0;
@@ -45,10 +49,23 @@
     }
   </script>
 <div class="container">
-  <div class="page-header">
-      <h1>Activity</h1>
-  </div>
-
+<div class="row">
+  	<div class="col-md-4">
+    	<h1>Activity</h1>
+    </div>
+	<div class="col-md-4"><!--
+		<div class="form-group" style="padding-top: 15px;">
+			<div class="input-append date" id="tgl" data-date="05-2001" data-date-format="mm-yyyy">
+				<input class="span2" size="16" type="text" value="05-2001">
+				<span class="add-on"><i class="icon-th"></i></span>
+			</div>
+			<button class="btn btn-default" id="search" type="submit">
+				<i id="iconpass" class="glyphicon glyphicon-search"></i>
+			</button>
+		</div> -->
+	</div>
+	</div>
+	<hr style="margin-top: 0px; margin-bottom: 30px;">
   <div id="activity" class="column activity"></div>
 
   <div class="column summary" style="padding-left: 20px">

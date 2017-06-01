@@ -35,10 +35,6 @@
     };
     function checkData(hasil) {
         var bank = $("#bank").val();
-        var len = bank.length;
-        for(i=len ; i < 4 ; i++){
-            bank = "0"+bank;
-        }
         var cek = 0;
         var uang = 1;
         var account = $("#acc").val();
@@ -46,7 +42,7 @@
         var tujuan;
         if(parseInt(amount) < 10000) {
             alert("Jumlah transfer minimal Rp 10.000");
-            return; 
+            return;
         }
         for(i in hasil) {
             if(hasil[i].account == me && parseInt(hasil[i].amount) <= parseInt(amount)) {
@@ -69,23 +65,25 @@
     };
     function confirmation(tujuan,amount) {
         var bank = $("#bank option:selected").text();
+        var bankcode = $("#bank").val();
         var text = $("#info").val();
-        $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount+"<br>Notes : "+text+"<br><label>Confirm PIN : </label><input type='password' class='form-control' id='pin' placeholder='PIN'>");
+        $("#isimodal").html("Bank Tujuan : "+bank+"<br>Account Tujuan : "+tujuan.account+"<br>Nama Penerima : "+tujuan.name+"<br>Jumlah Transfer : "+amount+"<br>Notes : "+text+"<br>");
+        if(bankcode != '0001'){
+            $("#isimodal").append("Biaya Transfer : Rp 6.500,00<br><br><label>Confirm PIN : </label><input type='password' class='form-control' id='pin' placeholder='PIN'><br>");
+        }
+        else {
+            $("#isimodal").append("<br><label>Confirm PIN : </label><input type='password' class='form-control' id='pin' placeholder='PIN'>");
+        }
         $("#confirm").modal('show');
     };
     function transfer() {
-        var bank = $("#bank").val();
-        var len = bank.length;
-        for(i=len ; i < 4 ; i++){
-            bank = "0"+bank;
-        }
         $.ajax({
             url: "transferdata.php",
             type: "POST",
             async: "false",
             data: {
                 transfer: 1,
-                bankcode: bank,
+                bankcode: $("#bank").val(),
                 other: $("#acc").val(),
                 amount: $("#amount").val(),
                 info: $("#info").val(),
@@ -93,11 +91,47 @@
             },
             success: function(res){
                 alert(res);
-                window.location.href = 'welcome.php';
             }
         });
     };
+    function showHistory(){
+        $.ajax({
+            url: "transferdata.php",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                history: 1
+            },
+            success: function(result){
+                $.each(result, function(i,field){
+                    $("#history").append('<option value="'+field['acc']+'" bank="'+field['bankcode']+'">'+field['acc']+' '+field['name']+'</option>');
+                });
+                $("#history").append('<option value="new">-- Enter a New Account --</option>');
+            }
+        })
+    }
     $(document).ready(function(){
+        $("#showbank").hide();
+        $("#showacc").hide();
+        showHistory();
+        $("#showhistory").change(function(){
+            if($("#history").val() == "new") {
+                $("#bank").val("none");
+                $("#acc").val("");
+                $("#showbank").show();
+                $("#showacc").show();
+            }
+            else {
+                var b = $("#history option:selected").attr("bank");
+                var a = $("#history").val();
+                $("#bank").val(b);
+                $("#acc").val(a);
+                var tmpb = $("#bank").val();
+                var tmpa = $("#acc").val();
+                $("#showbank").hide();
+                $("#showacc").hide();
+            }
+        })
         $("#acc").keyup(function(){
             checkNum(this);
         });
@@ -120,20 +154,27 @@
             <form class="row">
                 <div class="col-sm-12">
                     <div class="well">
-                        <div class="form-group">
-                            <label for="bank">Bank :</label>
-                            <select name="bank" id="bank" class="form-control" >
-                            	<option selected disabled value="none"> -- Select a Bank -- </option>
-                                <option value="5">BCA</option>
-                            	<option value="4">BNI</option>
-                            	<option value="3">BRI</option>
-                                <option value="2">Mandiri</option>
-                                <option value="1">Eazy</option>
+                    <form>
+                        <div class="form-group" id="showhistory">
+                            <label for="bank">Account :</label>
+                            <select id="history" class="form-control" >
+                                <option selected disabled value="none"> -- Select an Account -- </option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="account-transfer">Account yang dituju :</label>
-                            <input type="text" name="account-transfer" id="acc" class="form-control" placeholder="Account yang dituju"/>
+                        <div class="form-group" id="showbank">
+                            <label>Bank :</label>
+                            <select id="bank" class="form-control" >
+                            	<option selected disabled value="none"> -- Select a Bank -- </option>
+                                <option value="0005">BCA</option>
+                            	<option value="0004">BNI</option>
+                            	<option value="0003">BRI</option>
+                                <option value="0002">Mandiri</option>
+                                <option value="0001">Eazy</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="showacc">
+                            <label>Account yang dituju :</label>
+                            <input type="text" id="acc" class="form-control" placeholder="Account yang dituju"/>
                         </div>
                         <div class="form-group">
                             <label for="jumlah">Jumlah :</label>
@@ -148,12 +189,13 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <button type="button" data-toggle="modal" class="btn btn-primary btn-block" id="transfer">Transfer</button>
+                                <button type="submit" data-toggle="modal" class="btn btn-primary btn-block" id="transfer">Transfer</button>
                             </div>
                             <div class="col-sm-6">
                                 <a href="activity.php"><button type="button" class="btn btn-danger btn-block">Cancel</button></a>
                             </div> 
                         </div>
+                        </form>
                     </div>
                 </div>
             </form>
@@ -168,13 +210,15 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Transfer Confirmation</h4>
             </div>
+            <form>
             <div class="modal-body" id="isimodal">
               <!-- isi confirm transfer -->
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal" id="conftranf">Confirm Transfer</button>
+            <button type="submit" class="btn btn-success" data-dismiss="modal" id="conftranf">Confirm Transfer</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
+            </form>
           </div>
           
         </div>

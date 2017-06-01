@@ -57,12 +57,10 @@
 
 		$query1 = "INSERT INTO transfer VALUES(null,'$amount','$bankcode','$user','$other','$info',now())";
 		$query2 = "INSERT INTO activity VALUES(null,now(),'$othername','$info','$amount',1,'$user')";
-		$query3 = "UPDATE user SET balance=balance - $amount WHERE account='$user'";
-		
-
+		$query3 = "UPDATE user SET balance=balance - $amount WHERE account='$user'";		
 		$exe1 = mysqli_query($con,$query1);
 		$exe2 = mysqli_query($con,$query2);
-		$exe3 = mysqli_query($con,$query3);
+		
 		if($bankcode == '0001') {
 			$query4 = "INSERT INTO activity VALUES(null,now(),'$name','$info','$amount',0,'$other')";
 			$query5 = "UPDATE user SET balance=balance + $amount WHERE account='$other'";
@@ -71,8 +69,40 @@
 		}else {
 			$query5 = "UPDATE otheruser SET balance=balance + $amount WHERE account='$other'";
 			$exe5 = mysqli_query($con,$query5);
+			$amount += 6500;
 		}
+		$exe3 = mysqli_query($con,$query3);
+
 		echo "Transaksi Berhasil !";
 		exit;
+	}
+	if(isset($_POST['history'])) {
+		$me = $_SESSION['account'];
+		$query = "SELECT otheruser,bankcode FROM transfer WHERE user='$me'";
+		$exe = mysqli_query($con,$query);
+		$data = array();
+		while($row = mysqli_fetch_assoc($exe)) {
+			$tmp = $row['otheruser'];
+			$cek = 1;
+			foreach($data as $val){
+				if($tmp == $val['acc']) {
+					$cek = 0;
+				}
+			}
+			if($cek == 1){
+				$temp['acc'] = $row['otheruser'];
+				$temp['bankcode'] = $row['bankcode'];
+				if($row['bankcode'] == '0001') {
+					$exe2 = mysqli_query($con,"SELECT name FROM user WHERE account='$tmp'");
+				}
+				else {
+					$exe2 = mysqli_query($con,"SELECT name FROM otheruser WHERE account='$tmp'");
+				}
+				$row2 = mysqli_fetch_assoc($exe2);
+				$temp['name'] = $row2['name'];
+				array_push($data,$temp);
+			}
+		}
+		echo json_encode($data);
 	}
 ?>
