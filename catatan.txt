@@ -5,7 +5,7 @@
 -kirim email generate code
 -perbaiki desain
 
-isi admin
+isi admin (pagination)
 -manage member
 -manage transaksi
 -grafik per orang per bulan
