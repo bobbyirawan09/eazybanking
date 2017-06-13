@@ -14,7 +14,6 @@ revisi
 -save pdf per transfer
 -credit card + utang
 -bunga pajak
--activity dibuat paging atau .....
 
 
 done:
@@ -24,3 +23,4 @@ done:
 -transfer bank lain bayar 6500
 -pin 3 kali salah 30 menit
 -search activity
+-activity dibuat paging atau ..... (sudah selesai)
